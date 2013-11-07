@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- DO NOT MODIFY THIS FILE - IT IS AUTOMATICALLY GENERATED -->
+<ReleaseDB>
+  <Versions>
+    <Version ProgIdVersion="1">
+      <VersionedProgId>RouteSplit.RouteSplitCtrl.1</VersionedProgId>
+      <Clsid>EE79304F-ACA6-44A0-80BA-88879C7E5027</Clsid>
+      <TypeLibGuid>7E06763D-8673-4B70-BD36-1780FDACD3F4</TypeLibGuid>
+      <InterfaceMainGuid>5E2BEE8A-4578-42BE-8A2F-A2843023E820</InterfaceMainGuid>
+      <InterfaceEventsGuid>B38992AB-BB23-44F6-9049-F7971404FEE6</InterfaceEventsGuid>
+    </Version>
+  </Versions>
+  <Builds>
+    <Build Version="1.1.5052.31116">
+      <ProductId>A1D98FFD-AA33-419D-86DD-3516C8FDE9E8</ProductId>
+      <AssemblyVersion>1.1.0.0</AssemblyVersion>
+      <RetainVersion>1.1.0.0</RetainVersion>
+      <Timestamp>2013-10-31T17:17:12</Timestamp>
+    </Build>
+  </Builds>
+</ReleaseDB>
+<!-- DO NOT MODIFY THIS FILE - IT IS AUTOMATICALLY GENERATED -->

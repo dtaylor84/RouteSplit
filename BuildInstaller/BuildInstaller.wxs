@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<?include "BuildInstaller-defs.wxi" ?>
+    <Product Id="$(var.ProductId)" Language="$(var.Language)" Manufacturer="$(var.Manufacturer)" Name="$(var.ProductName) v$(var.ProductVersion)" UpgradeCode="$(var.UpgradeCode)" Version="$(var.ProductVersion)">
+        <Package Compressed="yes" InstallerVersion="200" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder" Name="ProgramFilesFolder">
+                <Directory Id="Install" Name="$(var.InstallDir)">
+                    <Component Id="DLL" DiskId="1">
+                        <File Id="DLL" KeyPath="yes" Name="$(var.ShortName).$(var.ProgIdVersion).dll" Source="$(var.SolutionDir)\Release\$(var.ShortName).dll" />
+                        <Class Id="$(var.Clsid)" Context="InprocServer32" Description="$(var.ProductName)" ThreadingModel="both" Version="$(var.ProgIdVersion).0" ForeignServer="mscoree.dll" Control="yes">
+                            <ProgId Id="$(var.ShortName).$(var.ControlName)" Description="$(var.ProductName)" />
+                            <ProgId Id="$(var.ShortName).$(var.ControlName).$(var.ProgIdVersion)" Description="$(var.ProductName) v$(var.ProgIdVersion)" />
+                        </Class>
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32\$(var.AssemblyVersion)" Name="Class" Value="$(var.ShortName).$(var.ControlName)" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32\$(var.AssemblyVersion)" Name="Assembly" Value="$(var.ShortName), Version=$(var.AssemblyVersion), Culture=neutral, PublicKeyToken=$(var.PublicKeyToken)" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32\$(var.AssemblyVersion)" Name="RuntimeVersion" Value="$(var.RuntimeVersion)" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32\$(var.AssemblyVersion)" Name="CodeBase" Value="[#DLL]" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32" Name="Class" Value="$(var.ShortName).$(var.ControlName)" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32" Name="Assembly" Value="$(var.ShortName), Version=$(var.AssemblyVersion), Culture=neutral, PublicKeyToken=$(var.PublicKeyToken)" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32" Name="RuntimeVersion" Value="$(var.RuntimeVersion)" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\InprocServer32" Name="CodeBase" Value="[#DLL]" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\MiscStatus" Value="131473" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\ToolBoxBitmap32" Value="[#DLL], 101" Type="string" Action="write" />
+                        <RegistryValue Root="HKCR" Key="CLSID\$(var.Clsid)\TypeLib" Value="$(var.TypeLibGuid)" Type="string" Action="write" />
+                    </Component>
+                    <Component Id="TLB" DiskId="1">
+                        <File Id="TLB" KeyPath="yes" Name="$(var.ShortName).$(var.ProgIdVersion).tlb" Source="$(var.SolutionDir)\Release\$(var.ShortName).tlb">
+                            <TypeLib Id="$(var.TypeLibGuid)" Description="$(var.ShortName)" Language="0" MajorVersion="$(var.ProgIdVersion)" MinorVersion="0">
+                                <Interface Id="$(var.InterfaceEventsGuid)" Name="$(var.InterfaceEvents)" ProxyStubClassId="$(var.InterfaceEventsProxy)" ProxyStubClassId32="$(var.InterfaceEventsProxy)" />
+                                <Interface Id="$(var.InterfaceMainGuid)" Name="$(var.InterfaceMain)" ProxyStubClassId="$(var.InterfaceMainProxy)" ProxyStubClassId32="$(var.InterfaceMainProxy)" />
+                            </TypeLib>
+                        </File>
+                    </Component>
+                </Directory>
+            </Directory>
+        </Directory>
+        <Feature Id="$(var.ShortName)" Level="1" Title="$(var.ShortName)">
+            <ComponentRef Id="DLL" />
+            <ComponentRef Id="TLB" />
+        </Feature>
+        <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+        <Upgrade Id="$(var.UpgradeCode)">
+            <!-- Remove all products with same UpgradeCode BELOW specified maximum version -->
+            <UpgradeVersion OnlyDetect="no" Property="OBSOLETEPRODUCTS" IgnoreRemoveFailure="yes" Minimum="0.0.0" Maximum="$(var.RetainVersion)" ExcludeLanguages="yes" IncludeMinimum="yes" IncludeMaximum="no" />
+			<!-- Also, remove all products with the same ProgIdVersion, i.e. versions in [AssemblyVersion, FileVersion) -->
+			<!-- a failure here is probably because it's in use - fail -->
+            <UpgradeVersion OnlyDetect="no" Property="EARLIERBUILDS"    IgnoreRemoveFailure="no"  Minimum="$(var.AssemblyVersion)" Maximum="$(var.NextAssemblyVersion)" ExcludeLanguages="yes" IncludeMinimum="yes" IncludeMaximum="no" />
+        </Upgrade>
+        <UI />
+        <!-- install per user on Win7 or higher -->
+        <Property Id="ALLUSERS" Secure="yes" Value="2" />
+        <Property Id="MSIINSTALLPERUSER" Secure="yes" Value="1" />
+        <!-- remove obsolete products after validating install -->
+        <InstallExecuteSequence>
+            <RemoveExistingProducts After="InstallValidate" />
+        </InstallExecuteSequence>
+    </Product>
+</Wix>
