@@ -1,10 +1,9 @@
 # ProgIdVersion - COM Object version - must be unique for every deployed release
-$ProgIdVersion=1
+$ProgIdVersion=2
 
 # RetainProgIdVersion - new installer will remove all ProgIdVersions older than this
-$RetainProgIdVersion=1
+$RetainProgIdVersion=2
 
 # COM Disp Interface event ids
 $DispIds=@{
-  "TestEvent"=1
 } 

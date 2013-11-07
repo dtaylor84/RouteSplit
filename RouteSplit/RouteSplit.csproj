@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>RouteSplit.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Properties\RouteSplit.snk</AssemblyOriginatorKeyFile>
     <Win32Resource>
     </Win32Resource>
     <ApplicationIcon>
@@ -72,28 +72,34 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveXCtrlHelper.cs">
+    <Compile Include="Extras\ActiveXCtrlHelper.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="..\BuildInstaller\BuildInstaller-consts.cs" />
-    <Compile Include="RouteSplitCtrl.cs">
+    <Compile Include="..\BuildInstaller\BuildInstaller-consts.cs">
+      <Link>Properties\BuildInstaller-consts.cs</Link>
+    </Compile>
+    <Compile Include="Source\RouteSplitCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RouteSplitCtrl.Designer.cs">
+    <Compile Include="Source\RouteSplitCtrl.Designer.cs">
       <DependentUpon>RouteSplitCtrl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MultiSelListBox.cs">
+    <Compile Include="Source\MultiSelListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="RouteListView.cs">
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\RouteListView.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="RouteSplit.snk" />
-    <None Include="..\BuildInstaller\BuildInstaller-properties.ps1" />
-	<None Include="..\BuildInstaller\BuildInstaller.ps1" />
+    <None Include="Properties\RouteSplit.snk" />
+    <None Include="..\BuildInstaller\BuildInstaller-properties.ps1">
+      <Link>Properties\BuildInstaller-properties.ps1</Link>
+    </None>
+    <None Include="..\BuildInstaller\BuildInstaller.ps1">
+      <Link>Extras\BuildInstaller.ps1</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
