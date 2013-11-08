@@ -1,13 +1,22 @@
-﻿$ErrorActionPreference = "Stop"
+﻿param([switch]$TestMode)
+$ErrorActionPreference = "Stop"
 ###############################################################################
 # build.ps1
 #
 # Automatically update BuildConstants and .wxs, then rebuild .dll and .msi
 # Generates GUIDs for new ProgIdVersions as required
 #
+# -TestMode The installer is not saved, but is installed immediately.
+#           New GUIDs are generated as required, but not saved either.
+#
 # David Taylor
 # 2013-10-27
 ###############################################################################
+if ($TestMode) {
+  $MsBuildConfiguration = "Debug";
+} else {
+  $MsBuildConfiguration = "Release";
+}
 ####################
 # File Locations
 ####################
@@ -17,7 +26,7 @@ $Solution = "$SolutionDir\$ShortName.sln"
 $ProjectDir = "$SolutionDir\$ShortName"
 $InstallerDir = "$SolutionDir\BuildInstaller"
 $MSIDir = "$SolutionDir\MSI"
-$Assembly = "$SolutionDir\Release\$ShortName.dll"
+$Assembly = "$SolutionDir\$MsBuildConfiguration\$ShortName.dll"
 # GUID database - updated with new GUIDs
 $ReleaseDB = "$InstallerDir\BuildInstaller-DB.xml"
 # Outputs - generated c# constants / wix definitions
@@ -57,8 +66,8 @@ if ($env:VSINSTALLDIR -eq $null) {
 			}
 		}
 	if ($LastExitCode -ne 0) { throw "Failed to set up VS environment" }
+	popd
 }
-popd
 ###############################################################################
 
 $TimeSinceEpoch = New-TimeSpan $(Get-Date -month 1 -day 1 -year 2000 -Hour 0 -Minute 0 -Second 0) $(Get-Date)
@@ -81,30 +90,42 @@ $xml.Load($ReleaseDB)
 # check for existing guids for this $ProgIdVersion
 $XmlVersionSelect = Select-Xml -Xml $xml -XPath "/ReleaseDB/Versions/Version[@ProgIdVersion='$ProgIdVersion']"
 
+
 # prompt for confirmation
 $wshell = New-Object -ComObject Wscript.Shell -ErrorAction Stop
-if ($XmlVersionSelect -eq $null) {
-  $rc = $wshell.Popup(("Generate guids and create new v{0} release? (uninstall <v{1})" -f $ProgIdVersion, $RetainProgIdVersion),0,"New Release",32+1)
-
-  # generate <Version> with new guids and append it to the <Versions> element
-  $XmlVersion = $xml.CreateElement('Version')
-  [Void]$XmlVersion.SetAttribute('ProgIdVersion', $ProgIdVersion)
-  $XmlVersion.AppendChild($xml.CreateElement('VersionedProgId')).InnerText = $ProgIdVersioned
-  $XmlVersion.AppendChild($xml.CreateElement('Clsid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
-  $XmlVersion.AppendChild($xml.CreateElement('TypeLibGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
-  $XmlVersion.AppendChild($xml.CreateElement('InterfaceMainGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
-  $XmlVersion.AppendChild($xml.CreateElement('InterfaceEventsGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
-  [Void]$xml.ReleaseDB['Versions'].AppendChild($XmlVersion)
-  
+if ($TestMode)
+{
+	$RetainProgIdVersion=1 # retain all versions for TestMode builds
+	$rc = $wshell.Popup(("Compile and install new v{0} debug build?" -f $ProgIdVersion),0,"Debug Build",32+1)	
+}
+elseif ($XmlVersionSelect -eq $null)
+{
+	$rc = $wshell.Popup(("Generate guids and create new v{0} release? (keep >=v{1})" -f $ProgIdVersion, $RetainProgIdVersion),0,"Release Build",32+1)
 }
 else
 {
-  $XmlVersion = $XmlVersionSelect.Node
-  $rc = $wshell.Popup(("Re-roll existing v{0} release using existing GUIDs? (uninstall <v{1}) (Only do this if v{0} has never been deployed!)" -f $ProgIdVersion, $RetainProgIdVersion),0,"Replace Release",48+1)
+	$rc = $wshell.Popup(("Re-roll existing v{0} release using existing GUIDs? (keep >=v{1}) (Only do this if v{0} has never been deployed!)" -f $ProgIdVersion, $RetainProgIdVersion),0,"Replace Release",48+1)
 }
 
 if ($rc -ne 1) {
   exit
+}
+
+if ($XmlVersionSelect -eq $null)
+{
+	# generate <Version> with new guids and append it to the <Versions> element
+	$XmlVersion = $xml.CreateElement('Version')
+	[Void]$XmlVersion.SetAttribute('ProgIdVersion', $ProgIdVersion)
+	$XmlVersion.AppendChild($xml.CreateElement('VersionedProgId')).InnerText = $ProgIdVersioned
+	$XmlVersion.AppendChild($xml.CreateElement('Clsid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
+	$XmlVersion.AppendChild($xml.CreateElement('TypeLibGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
+	$XmlVersion.AppendChild($xml.CreateElement('InterfaceMainGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
+	$XmlVersion.AppendChild($xml.CreateElement('InterfaceEventsGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
+	[Void]$xml.ReleaseDB['Versions'].AppendChild($XmlVersion) 
+}
+else
+{
+  $XmlVersion = $XmlVersionSelect.Node
 }
 
 # Generate <Build> with new version numbers and append it to the <Builds> element
@@ -133,6 +154,8 @@ namespace $ShortName
 		
 		public const int TypeLibVersionMajor = $ProgIdVersion;
 		public const int TypeLibVersionMinor = 0;
+		
+		public const string MsBuildConfiguration = "$MsBuildConfiguration";
 
         public const string AssemblyVersion = "$AssemblyVersion";
         public const string AssemblyFileVersion = "$FileVersion";
@@ -156,7 +179,7 @@ namespace $ShortName
 "@ >$BuildConstants
 
 # rebuild with new BuildConstants.cs file
-msbuild /m "$Solution" /p:Configuration=Release /p:Platform="Any CPU"
+msbuild /m "$Solution" /p:Configuration=$MsBuildConfiguration /p:Platform="Any CPU"
 if ($LastExitCode -ne 0) { throw "Build failed" }
 
 # check newly built assembly has expected version number
@@ -200,6 +223,7 @@ if ( $NewAssemblyVersion -ne $AssemblyVersion-or $FileVersion -ne $NewFileVersio
     <?define InterfaceEventsProxy = "{$InterfaceEventsProxy}" ?>
     <?define InstallDir           = "$InstallDir" ?>
     <?define UpgradeCode = "{$UpgradeCode}" ?>
+	<?define MsBuildConfiguration = "$MsBuildConfiguration" ?>
 </Include>
 <!-- DO NOT MODIFY - AUTOMATICALLY GENERATED BY build.ps1 -->
 "@ > $WixInclude
@@ -214,12 +238,25 @@ bin\light.exe  -nologo "$InstallerDir\obj\BuildInstaller.wixobj" -out "$Installe
 if ($LastExitCode -ne 0) { throw "Failed to run light.exe" }
 popd
 
-# Save XML file
-$xml.Save($ReleaseDB + ".new")
-Move-Item ($ReleaseDB + ".new") $ReleaseDB -Force
+if ($TestMode)
+{
+    $wshell.Popup("Ensure SAP Logon test-instance is not running!",0,"Installing new build",48)
+	Start-Process msiexec.exe -ArgumentList "/passive /i ""$InstallerDir\obj\$ShortName-$FileVersion.msi""" -Wait
+	Remove-Item -Force "$InstallerDir\obj\$ShortName-$FileVersion.msi"
+	Start-Process "Test In SAP.lnk"
+	echo ("Successfully installed {0} v{1}" -f $ShortName, $FileVersion)
+}
+else
+{
+	# Save XML file
+	$xml.Save($ReleaseDB + ".new")
+	Move-Item ($ReleaseDB + ".new") $ReleaseDB -Force
 
-[Void](mkdir -p "$MSIDir" -f)
-Copy-Item "$InstallerDir\obj\$ShortName-$FileVersion.msi" "$MSIDir\$ShortName-$FileVersion.msi"
+	[Void](mkdir -p "$MSIDir" -f)
+	Copy-Item "$InstallerDir\obj\$ShortName-$FileVersion.msi" "$MSIDir\$ShortName-$FileVersion.msi"
+	
 
-echo ("Succesfully built {0} v{1} in {2}" -f $ShortName, $FileVersion, "$MSIDir\$ShortName-$FileVersion.msi")
-Start-Sleep 5
+	echo ("Successfully built {0} v{1} in {2}" -f $ShortName, $FileVersion, "$MSIDir\$ShortName-$FileVersion.msi")
+}
+
+Start-Sleep 3

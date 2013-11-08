@@ -64,8 +64,11 @@ namespace RouteSplit
     public interface RouteSplitCtrlEvents
     {
         #region Events
+
+#if false
         [DispId(c.DispId_TestEvent)]
         void TestEvent(string str);
+#endif
 
         #endregion
     }
