@@ -1,5 +1,4 @@
-﻿param([switch]$TestMode)
-$ErrorActionPreference = "Stop"
+﻿$ErrorActionPreference = "Stop"
 ###############################################################################
 # build.ps1
 #
@@ -12,11 +11,6 @@ $ErrorActionPreference = "Stop"
 # David Taylor
 # 2013-10-27
 ###############################################################################
-if ($TestMode) {
-  $MsBuildConfiguration = "Debug";
-} else {
-  $MsBuildConfiguration = "Release";
-}
 ####################
 # File Locations
 ####################
@@ -26,7 +20,6 @@ $Solution = "$SolutionDir\$ShortName.sln"
 $ProjectDir = "$SolutionDir\$ShortName"
 $InstallerDir = "$SolutionDir\BuildInstaller"
 $MSIDir = "$SolutionDir\MSI"
-$Assembly = "$SolutionDir\$MsBuildConfiguration\$ShortName.dll"
 # GUID database - updated with new GUIDs
 $ReleaseDB = "$InstallerDir\BuildInstaller-DB.xml"
 # Outputs - generated c# constants / wix definitions
@@ -36,7 +29,7 @@ $WixToolsetDir = "$env:WIX"
 ####################
 # Project Properties
 ####################
-. "$InstallerDir\BuildInstaller-properties.ps1"
+$BUILD_CONFIG = Import-CliXML "$InstallerDir\BuildInstaller-properties.xml"
 $ProductName="$ShortName SAP GUI Control"
 $Manufacturer="Menzies Distribution Ltd"
 $Copyright="Copyright © $Manufacturer 2013"
@@ -69,6 +62,227 @@ if ($env:VSINSTALLDIR -eq $null) {
 	popd
 }
 ###############################################################################
+$wshell = New-Object -ComObject Wscript.Shell -ErrorAction Stop
+
+function PromptUser([ref]$Config) {
+			[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+			[void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")  
+			[System.Windows.Forms.Application]::EnableVisualStyles();
+			$AnchorStyles = "System.Windows.Forms.AnchorStyles" -as [type] 
+			$frmConfig = New-Object System.Windows.Forms.Form
+			
+            $frmConfignudVer =  New-Object System.Windows.Forms.NumericUpDown;
+            $frmConfignudRetain = New-Object System.Windows.Forms.NumericUpDown;
+            $frmConfiglblVer = New-Object System.Windows.Forms.Label;
+            $frmConfiglblRetain = New-Object System.Windows.Forms.Label;
+            $frmConfiglblEvents = New-Object System.Windows.Forms.Label;
+            $frmConfigdgEvents = New-Object System.Windows.Forms.DataGridView;
+            $frmConfiglblIntro = New-Object System.Windows.Forms.Label;
+            $frmConfigbtnDebug = New-Object System.Windows.Forms.Button;
+            $frmConfigbtnCancel = New-Object System.Windows.Forms.Button;
+            $frmConfigEventName = New-Object System.Windows.Forms.DataGridViewTextBoxColumn;
+            $frmConfigEventID = New-Object System.Windows.Forms.DataGridViewTextBoxColumn;
+            $frmConfigbtnRelease = New-Object System.Windows.Forms.Button;
+            ([System.ComponentModel.ISupportInitialize]($frmConfignudVer)).BeginInit();
+            ([System.ComponentModel.ISupportInitialize]($frmConfignudRetain)).BeginInit();
+            ([System.ComponentModel.ISupportInitialize]($frmConfigdgEvents)).BeginInit();
+            $frmConfig.SuspendLayout();
+            # 
+            # lblIntro
+            # 
+            $frmConfiglblIntro.AutoSize = $True;
+            $frmConfiglblIntro.Location = New-Object System.Drawing.Point(12, 9);
+            $frmConfiglblIntro.Name = "lblIntro";
+            $frmConfiglblIntro.Size = New-Object System.Drawing.Size(210, 13);
+            $frmConfiglblIntro.TabIndex = 0;
+            $frmConfiglblIntro.Text = "Configure properties and select build mode:";
+            # 
+            # lblVer
+            # 
+            $frmConfiglblVer.AutoSize = $True;
+            $frmConfiglblVer.Location = New-Object System.Drawing.Point(12, 42);
+            $frmConfiglblVer.Name = "lblVer";
+            $frmConfiglblVer.Size = New-Object System.Drawing.Size(76, 13);
+            $frmConfiglblVer.TabIndex = 1;
+            $frmConfiglblVer.Text = "ProgId &Version:";
+            # 
+            # nudVer
+            # 
+            $frmConfignudVer.Location = New-Object System.Drawing.Point(274, 35);
+			$frmConfignudVer.Anchor = ($AnchorStyles.Top -bor $AnchorStyles.Right)
+            $frmConfignudVer.Maximum = 65534;
+            $frmConfignudVer.Name = "nudVer";
+            $frmConfignudVer.Size = New-Object System.Drawing.Size(75, 20);
+            $frmConfignudVer.TabIndex = 2;
+            # 
+            # lblRetain
+            # 
+            $frmConfiglblRetain.AutoSize = $True;
+            $frmConfiglblRetain.Location = New-Object System.Drawing.Point(12, 61);
+            $frmConfiglblRetain.Name = "lblRetain";
+            $frmConfiglblRetain.Size = New-Object System.Drawing.Size(251, 13);
+            $frmConfiglblRetain.TabIndex = 3;
+            $frmConfiglblRetain.Text = "Oldest ProgID Version to re&tain (Release only):";
+            # 
+            # nudRetain
+            # 
+            $frmConfignudRetain.Location = New-Object System.Drawing.Point(274, 61);
+			$frmConfignudRetain.Anchor = ($AnchorStyles.Top -bor $AnchorStyles.Right)
+            $frmConfignudRetain.Maximum = 65534;
+            $frmConfignudRetain.Name = "nudRetain";
+            $frmConfignudRetain.Size = New-Object System.Drawing.Size(75, 20);
+            $frmConfignudRetain.TabIndex = 4;
+            # 
+            # lblEvents
+            # 
+            $frmConfiglblEvents.AutoSize = $True;
+            $frmConfiglblEvents.Location = New-Object System.Drawing.Point(12, 112);
+            $frmConfiglblEvents.Name = "lblEvents";
+            $frmConfiglblEvents.Size = New-Object System.Drawing.Size(43, 13);
+            $frmConfiglblEvents.TabIndex = 5;
+            $frmConfiglblEvents.Text = "&Events:";
+            # 
+            # EventName
+            # 
+            $frmConfigEventName.HeaderText = "Name";
+            $frmConfigEventName.MaxInputLength = 40;
+            $frmConfigEventName.Name = "EventName";
+            # 
+            # EventID
+            # 
+            $frmConfigEventID.HeaderText = "ID";
+            $frmConfigEventID.MaxInputLength = 9;
+            $frmConfigEventID.Name = "EventID";	
+            # 
+            # dgEvents
+            # 
+            $frmConfigdgEvents.Anchor = ($AnchorStyles.Top -bor $AnchorStyles.Bottom -bor $AnchorStyles.Left -bor $AnchorStyles.Right)
+            $frmConfigdgEvents.ColumnHeadersHeightSizeMode = [System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode]::AutoSize;
+            $frmConfigdgEvents.Columns.AddRange($frmConfigEventName, $frmConfigEventID)
+			$frmConfigdgEvents.SelectionMode = [System.Windows.Forms.DataGridViewSelectionMode]::FullRowSelect
+            $frmConfigdgEvents.Location = New-Object System.Drawing.Point(61, 112);
+            $frmConfigdgEvents.Name = "dgEvents";
+            $frmConfigdgEvents.Size = New-Object System.Drawing.Size(288, 159);
+            $frmConfigdgEvents.TabIndex = 6
+            # 
+            # btnDebug
+            # 
+            $frmConfigbtnDebug.Anchor = $AnchorStyles.Bottom -bor $AnchorStyles.Left;
+            $frmConfigbtnDebug.Location = New-Object System.Drawing.Point(13, 290);
+            $frmConfigbtnDebug.Name = "btnDebug";
+            $frmConfigbtnDebug.Size = New-Object System.Drawing.Size(75, 23);
+            $frmConfigbtnDebug.TabIndex = 7;
+            $frmConfigbtnDebug.Text = "&Debug";
+            $frmConfigbtnDebug.UseVisualStyleBackColor = $True;
+            # 
+            # btnRelease
+            # 
+            $frmConfigbtnRelease.Location = New-Object System.Drawing.Point(143, 290);
+            $frmConfigbtnRelease.Name = "btnRelease";
+            $frmConfigbtnRelease.Size = New-Object System.Drawing.Size(75, 23);
+            $frmConfigbtnRelease.TabIndex = 8;
+            $frmConfigbtnRelease.Text = "&RELEASE";
+            $frmConfigbtnRelease.UseVisualStyleBackColor = $True;
+            # 
+            # btnCancel
+            # 
+            $frmConfigbtnCancel.Anchor = $AnchorStyles.Bottom -bor $AnchorStyles.Right;
+            $frmConfigbtnCancel.Location = New-Object System.Drawing.Point(274, 290);
+            $frmConfigbtnCancel.Name = "btnCancel";
+            $frmConfigbtnCancel.Size = New-Object System.Drawing.Size(75, 23);
+            $frmConfigbtnCancel.TabIndex = 9;
+            $frmConfigbtnCancel.Text = "C&ancel";
+            $frmConfigbtnCancel.UseVisualStyleBackColor = $True;
+            # 
+            # frmConfig
+            # 
+            $frmConfig.AutoScaleDimensions = New-Object System.Drawing.SizeF(6, 13);
+            $frmConfig.AutoScaleMode = [System.Windows.Forms.AutoScaleMode]::Font;
+            $frmConfig.ClientSize = New-Object System.Drawing.Size(361, 325);
+            $frmConfig.Controls.Add($frmConfiglblIntro);
+            $frmConfig.Controls.Add($frmConfiglblVer);
+            $frmConfig.Controls.Add($frmConfignudVer);
+            $frmConfig.Controls.Add($frmConfiglblRetain);
+            $frmConfig.Controls.Add($frmConfignudRetain);
+            $frmConfig.Controls.Add($frmConfiglblEvents);
+            $frmConfig.Controls.Add($frmConfigdgEvents);
+            $frmConfig.Controls.Add($frmConfigbtnDebug);
+            $frmConfig.Controls.Add($frmConfigbtnRelease);
+            $frmConfig.Controls.Add($frmConfigbtnCancel);
+            $frmConfig.KeyPreview = $True;
+            $frmConfig.MaximizeBox = $False;
+            $frmConfig.MinimizeBox = $False;
+            $frmConfig.Name = "frmConfig";
+            $frmConfig.StartPosition = [System.Windows.Forms.FormStartPosition]::CenterScreen;
+            $frmConfig.Text = "Build Configuration";
+            $frmConfig.TopMost = $True;
+            ([System.ComponentModel.ISupportInitialize]($frmConfignudVer)).EndInit();
+            ([System.ComponentModel.ISupportInitialize]($frmConfignudRetain)).EndInit();
+            ([System.ComponentModel.ISupportInitialize]($frmConfigdgEvents)).EndInit();
+            $frmConfig.ResumeLayout( $False );
+            $frmConfig.PerformLayout();
+
+$DlgCancel = { $script:rc = 0; $frmConfig.Close(); }
+$DlgDebug = { $script:rc = 1; $script:TestMode = $true; $frmConfig.Close() }
+$DlgRelease = { $script:rc = 1; $script:TestMode = $false; $frmConfig.Close() }
+
+$frmConfig.Add_KeyDown({ if ($_.KeyCode -eq "Escape") { $DlgCancel.Invoke() } })
+$frmConfigbtnDebug.Add_Click($DlgDebug)
+$frmConfigbtnRelease.Add_Click($DlgRelease)
+$frmConfigbtnCancel.Add_Click($DlgCancel)
+##############
+
+	$frmConfignudVer.Value = $BUILD_CONFIG.ProgIdVersion
+	$frmConfignudRetain.Value = $BUILD_CONFIG.RetainProgIdVersion
+
+	foreach ($i in $BUILD_CONFIG.DispIds.GetEnumerator()) {
+	  [void]$frmConfigdgEvents.Rows.Add( $i.Name, $i.Value)
+	}
+
+	[void] $frmConfig.ShowDialog()
+	if ($rc -ne 1) { return $rc }
+
+	# Should really validate this, but hey only programmers will use it and we never make mistakes.
+	$BUILD_CONFIG.ProgIdVersion = $frmConfignudVer.Value
+	$BUILD_CONFIG.RetainProgIdVersion = $frmConfignudRetain.Value
+
+	$BUILD_CONFIG.DispIds = @{}
+	foreach ($r in $frmConfigdgEvents.Rows) {
+	  if ( $r.Cells['EventName'].Value) {
+		$BUILD_CONFIG.DispIds[$r.Cells['EventName'].Value] = $r.Cells['EventID'].Value
+	  }
+	}		
+	
+	# prompt for confirmation
+	if ($TestMode)
+	{
+		$rc = $wshell.Popup(("Compile and install new v{0} debug build?" -f $BUILD_CONFIG.ProgIdVersion),0,"Debug Build",32+1)	
+	}
+	elseif ($XmlVersionSelect -eq $null)
+	{
+		$rc = $wshell.Popup(("Generate guids and create new v{0} release? (keep >=v{1})" -f $BUILD_CONFIG.ProgIdVersion, $BUILD_CONFIG.RetainProgIdVersion),0,"Release Build",32+1)
+	}
+	else
+	{
+		$rc = $wshell.Popup(("Re-roll existing v{0} release using existing GUIDs? (keep >=v{1}) (Only do this if v{0} has never been deployed!)" -f $BUILD_CONFIG.ProgIdVersion, $BUILD_CONFIG.RetainProgIdVersion),0,"Replace Release",48+1)
+	}
+
+	return $rc
+}
+
+$rc = PromptUser ([ref]$BUILD_CONFIG)
+if ($rc -ne 1) {
+  exit
+}
+
+Export-CliXML -Path "$InstallerDir\BuildInstaller-properties.xml" -InputObject $BUILD_CONFIG
+
+if ($TestMode) {
+  $MsBuildConfiguration = "Debug";
+} else {
+  $MsBuildConfiguration = "Release";
+}
+$Assembly = "$SolutionDir\$MsBuildConfiguration\$ShortName.dll"
 
 $TimeSinceEpoch = New-TimeSpan $(Get-Date -month 1 -day 1 -year 2000 -Hour 0 -Minute 0 -Second 0) $(Get-Date)
 # Calculate Build number (whole days since 2000-01-01)
@@ -77,45 +291,30 @@ $BuildNumber = $TimeSinceEpoch.Days
 $RevisionNumber = [int] (($TimeSinceEpoch.Hours * 3600 + $TimeSinceEpoch.Minutes * 60 + $TimeSinceEpoch.Seconds)/2)
 # Construct version numbers
 $MajorVersion = 1
-$FileVersion = $MajorVersion.ToString() + "." + $ProgIdVersion.ToString() + "." + $BuildNumber.ToString() + "." + $RevisionNumber.ToString()
-$AssemblyVersion = $MajorVersion.ToString() + "." + $ProgIdVersion.ToString() + ".0.0"
-$NextAssemblyVersion = $MajorVersion.ToString() + "." + ($ProgIdVersion + 1).ToString() + ".0.0"
-$RetainVersion = $MajorVersion.ToString() + "." + $RetainProgIdVersion.ToString() + ".0.0" 
-$ProgIdVersioned = "$ProgId." + $ProgIdVersion.ToString()
+$FileVersion = $MajorVersion.ToString() + "." + $BUILD_CONFIG.ProgIdVersion.ToString() + "." + $BuildNumber.ToString() + "." + $RevisionNumber.ToString()
+$AssemblyVersion = $MajorVersion.ToString() + "." + $BUILD_CONFIG.ProgIdVersion.ToString() + ".0.0"
+$NextAssemblyVersion = $MajorVersion.ToString() + "." + ($BUILD_CONFIG.ProgIdVersion + 1).ToString() + ".0.0"
+	if ($TestMode)
+	{
+		$RetainVersion = $MajorVersion.ToString() + ".1.0.0" # retain all versions for TestMode builds
+	} else {
+		$RetainVersion = $MajorVersion.ToString() + "." + $BUILD_CONFIG.RetainProgIdVersion.ToString() + ".0.0" 
+	}
+$ProgIdVersioned = "$ProgId." + $BUILD_CONFIG.ProgIdVersion.ToString()
 
 # read existing release database
 $xml = New-Object -TypeName XML
 $xml.Load($ReleaseDB)
 
-# check for existing guids for this $ProgIdVersion
-$XmlVersionSelect = Select-Xml -Xml $xml -XPath "/ReleaseDB/Versions/Version[@ProgIdVersion='$ProgIdVersion']"
+# check for existing guids for this $BUILD_CONFIG.ProgIdVersion
+$XmlVersionSelect = Select-Xml -Xml $xml -XPath "/ReleaseDB/Versions/Version[@BUILD_CONFIG.ProgIdVersion='$BUILD_CONFIG.ProgIdVersion']"
 
-
-# prompt for confirmation
-$wshell = New-Object -ComObject Wscript.Shell -ErrorAction Stop
-if ($TestMode)
-{
-	$RetainProgIdVersion=1 # retain all versions for TestMode builds
-	$rc = $wshell.Popup(("Compile and install new v{0} debug build?" -f $ProgIdVersion),0,"Debug Build",32+1)	
-}
-elseif ($XmlVersionSelect -eq $null)
-{
-	$rc = $wshell.Popup(("Generate guids and create new v{0} release? (keep >=v{1})" -f $ProgIdVersion, $RetainProgIdVersion),0,"Release Build",32+1)
-}
-else
-{
-	$rc = $wshell.Popup(("Re-roll existing v{0} release using existing GUIDs? (keep >=v{1}) (Only do this if v{0} has never been deployed!)" -f $ProgIdVersion, $RetainProgIdVersion),0,"Replace Release",48+1)
-}
-
-if ($rc -ne 1) {
-  exit
-}
 
 if ($XmlVersionSelect -eq $null)
 {
 	# generate <Version> with new guids and append it to the <Versions> element
 	$XmlVersion = $xml.CreateElement('Version')
-	[Void]$XmlVersion.SetAttribute('ProgIdVersion', $ProgIdVersion)
+	[Void]$XmlVersion.SetAttribute('ProgIdVersion', $BUILD_CONFIG.ProgIdVersion)
 	$XmlVersion.AppendChild($xml.CreateElement('VersionedProgId')).InnerText = $ProgIdVersioned
 	$XmlVersion.AppendChild($xml.CreateElement('Clsid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
 	$XmlVersion.AppendChild($xml.CreateElement('TypeLibGuid')).InnerText = [guid]::NewGuid().ToString("D").ToUpper()
@@ -152,7 +351,7 @@ namespace $ShortName
         public const string ProgId = "$ProgId";
         public const string ProgIdVersioned = "$ProgIdVersioned";
 		
-		public const int TypeLibVersionMajor = $ProgIdVersion;
+		public const int TypeLibVersionMajor = $($BUILD_CONFIG.ProgIdVersion);
 		public const int TypeLibVersionMinor = 0;
 		
 		public const string MsBuildConfiguration = "$MsBuildConfiguration";
@@ -169,7 +368,7 @@ namespace $ShortName
         public const string AssemblyTitle = "$ShortName";
         public const string AssemblyTrademark = "";
 		$(
-			foreach ($i in $DispIds.GetEnumerator()) {
+			foreach ($i in $BUILD_CONFIG.DispIds.GetEnumerator()) {
 			  "`r`n`t`tpublic const int DispId_{0} = {1};" -f $i.Name, $i.Value
 			}
 		)
@@ -200,7 +399,7 @@ if ( $NewAssemblyVersion -ne $AssemblyVersion-or $FileVersion -ne $NewFileVersio
 <!-- DO NOT MODIFY - AUTOMATICALLY GENERATED BY build.ps1 -->
 <Include>
 	<?define SolutionDir          = "$SolutionDir" ?>
-    <?define ProgIdVersion        = "$ProgIdVersion" ?>
+    <?define ProgIdVersion        = "$($BUILD_CONFIG.ProgIdVersion)" ?>
     <?define ProductId            = "{$($XmlBuild.ProductId)}" ?>
     <?define Clsid                = "{$($XmlVersion.Clsid)}" ?>
     <?define TypeLibGuid          = "{$($XmlVersion.TypeLibGuid)}" ?>
@@ -222,7 +421,7 @@ if ( $NewAssemblyVersion -ne $AssemblyVersion-or $FileVersion -ne $NewFileVersio
     <?define InterfaceMainProxy   = "{$InterfaceMainProxy}" ?>
     <?define InterfaceEventsProxy = "{$InterfaceEventsProxy}" ?>
     <?define InstallDir           = "$InstallDir" ?>
-    <?define UpgradeCode = "{$UpgradeCode}" ?>
+    <?define UpgradeCode          = "{$UpgradeCode}" ?>
 	<?define MsBuildConfiguration = "$MsBuildConfiguration" ?>
 </Include>
 <!-- DO NOT MODIFY - AUTOMATICALLY GENERATED BY build.ps1 -->
@@ -240,7 +439,7 @@ popd
 
 if ($TestMode)
 {
-    $wshell.Popup("Ensure SAP Logon test-instance is not running!",0,"Installing new build",48)
+    [void]$wshell.Popup("Ensure SAP Logon test-instance is not running!",0,"Installing new build",48)
 	Start-Process msiexec.exe -ArgumentList "/passive /i ""$InstallerDir\obj\$ShortName-$FileVersion.msi""" -Wait
 	Remove-Item -Force "$InstallerDir\obj\$ShortName-$FileVersion.msi"
 	Start-Process "Test In SAP.lnk"
