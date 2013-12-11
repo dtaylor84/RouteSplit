@@ -52,6 +52,8 @@
         <!-- install per user on Win7 or higher -->
         <Property Id="ALLUSERS" Secure="yes" Value="2" />
         <Property Id="MSIINSTALLPERUSER" Secure="yes" Value="1" />
+		<!-- faster: disable system restore point, faster costing, fewer progress messages -->
+		<Property Id="MSIFASTINSTALL" Value="7"/>
         <!-- remove obsolete products after validating install -->
         <InstallExecuteSequence>
             <RemoveExistingProducts After="InstallValidate" />
