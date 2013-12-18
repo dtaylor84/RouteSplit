@@ -2,3 +2,5 @@
 /Release
 /RouteSplit/obj
 /BuildInstaller/obj
+/RSTestHost/bin
+/RSTestHost/obj
