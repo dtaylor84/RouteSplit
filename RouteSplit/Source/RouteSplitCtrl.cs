@@ -580,6 +580,8 @@ namespace RouteSplit
 
             State = RSTestData.RSTestData.InitData(); // grab hardcoded test data
 
+            (new VPProcMockup(State)).ShowDialog(this);
+
             plants.Clear();
 
             listBox1.BeginUpdate();
@@ -645,8 +647,23 @@ namespace RouteSplit
                         p = plants[strWerksId];
                     }
 
-                    RouteListViewItem i = new RouteListViewItem(strShortRoute, strRouteText, strVpType, strWerksId);
-                    i.BackColor = Color.FromArgb(255, ((16 * p.listView.Items.Count) % 255), ((16 * p.listView.Items.Count) % 255));
+                    // FIXME - oh god, fixme.
+                    RouteListViewItem i = new RouteListViewItem(strShortRoute, strRouteText, strVpType, strWerksId,
+                        State.VPTypeGroupItemConfigTab
+                            [
+                                new RSTVPTypeGroupItemConfigKey(
+                                    State.VPTypeGroupConfigTab[
+                                        new RSTVPTypeGroupConfigKey(
+                                            State.WerksTab[new RSTWerksKey(r.werksS.werksId)],
+                                            State.VPTypeGroupTab[new RSTVPTypeGroupKey("A")]
+                                        )
+                                    ],
+                                    State.VPTypeTab[new RSTVPTypeKey(r.vpType.vpTypeId)]
+                                )
+                            ]
+                    );
+                    //i.BackColor = Color.FromArgb(255, ((16 * p.listView.Items.Count) % 255), ((16 * p.listView.Items.Count) % 255));
+                    if (r.vpType.dummyType) i.BackColor = Color.FromArgb(255, 255, 0, 0);
                     p.listView.Add(i);
 
 

@@ -80,6 +80,15 @@
     <Compile Include="..\BuildInstaller\BuildInstaller-consts.cs">
       <Link>Properties\BuildInstaller-consts.cs</Link>
     </Compile>
+    <Compile Include="Source\ProcessListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\VptgiConfigListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\PackPhaseListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Source\RouteSplitCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +104,12 @@
     </Compile>
     <Compile Include="Source\RSTestData.cs" />
     <Compile Include="Source\RSTypes.cs" />
+    <Compile Include="Source\VPProcMockup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\VPProcMockup.Designer.cs">
+      <DependentUpon>VPProcMockup.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\RouteSplit.snk" />
@@ -149,6 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Source\VPProcMockup.resx">
+      <DependentUpon>VPProcMockup.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

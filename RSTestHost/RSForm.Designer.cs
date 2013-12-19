@@ -51,6 +51,7 @@
             this.Controls.Add(this.rs);
             this.Name = "RSForm";
             this.Text = "RouteSplit Test";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }
