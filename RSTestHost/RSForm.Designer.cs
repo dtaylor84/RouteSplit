@@ -33,14 +33,9 @@
             // 
             // rs
             // 
-            this.rs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rs.istream = null;
             this.rs.Location = new System.Drawing.Point(0, 0);
+            this.rs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rs.Name = "rs";
-            this.rs.Size = new System.Drawing.Size(1240, 589);
-            this.rs.t = null;
             this.rs.TabIndex = 0;
             // 
             // RSForm

@@ -12,18 +12,18 @@ using RouteSplit.Types;
 
 namespace RouteSplit
 {
-    public partial class VPProcMockup : Form
+    public partial class VPProcMockup : UserControl
     {
-        private RSTState State;
+        public RSTState State;
 
-        public VPProcMockup(RSTState state)
+        public VPProcMockup()
         {
-            State = state;
             InitializeComponent();
         }
 
         private void VPProcMockup_Load(object sender, EventArgs e)
         {
+            if (State == null) return;
 
             foreach (RSTPackPhase pp in State.PackPhaseTab)
             {

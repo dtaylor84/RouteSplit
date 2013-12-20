@@ -83,6 +83,12 @@
     <Compile Include="Source\ProcessListView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Source\RSCtrlForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\RSCtrlForm.Designer.cs">
+      <DependentUpon>RSCtrlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\VptgiConfigListView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -105,7 +111,7 @@
     <Compile Include="Source\RSTestData.cs" />
     <Compile Include="Source\RSTypes.cs" />
     <Compile Include="Source\VPProcMockup.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Source\VPProcMockup.Designer.cs">
       <DependentUpon>VPProcMockup.cs</DependentUpon>
@@ -166,6 +172,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Source\RouteSplitCtrl.resx">
+      <DependentUpon>RouteSplitCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\VPProcMockup.resx">
       <DependentUpon>VPProcMockup.cs</DependentUpon>
     </EmbeddedResource>
