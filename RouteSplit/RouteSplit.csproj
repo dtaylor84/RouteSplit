@@ -69,9 +69,11 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extras\ActiveXCtrlHelper.cs">
@@ -88,6 +90,15 @@
     </Compile>
     <Compile Include="Source\RSCtrlForm.Designer.cs">
       <DependentUpon>RSCtrlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\RSDataSet.cs">
+      <DependentUpon>RSDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\RSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Source\VptgiConfigListView.cs">
       <SubType>Component</SubType>
@@ -109,7 +120,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\RSTestData.cs" />
-    <Compile Include="Source\RSTypes.cs" />
+    <Compile Include="Source\RSTypesXXX.cs" />
     <Compile Include="Source\VPProcMockup.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,6 +135,19 @@
     </None>
     <None Include="..\BuildInstaller\BuildInstaller.ps1">
       <Link>Extras\BuildInstaller.ps1</Link>
+    </None>
+    <None Include="Source\RSDataSet.xsc">
+      <DependentUpon>RSDataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Source\RSDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <CustomToolNamespace>RouteSplit.Schema</CustomToolNamespace>
+    </None>
+    <None Include="Source\RSDataSet.xss">
+      <DependentUpon>RSDataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

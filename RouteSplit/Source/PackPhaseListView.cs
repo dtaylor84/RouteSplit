@@ -5,27 +5,27 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 namespace RouteSplit
 {
 
     public class PackPhaseListViewItem : ListViewItem
     {
-        private RSTPackPhase PackPhase;
+        private RSDataSet.PackPhaseRow PackPhase;
 
-        public PackPhaseListViewItem(RSTPackPhase packPhase)
+        public PackPhaseListViewItem(RSDataSet.PackPhaseRow packPhase)
         {
             this.PackPhase = packPhase;
 
-            this.Text = packPhase.phase.issue.issueId;
-            this.SubItems.Add(packPhase.phase.issue.text);
-            this.SubItems.Add(packPhase.phase.phaseModel);
-            this.SubItems.Add(packPhase.phase.phaseNo != 0 ? packPhase.phase.phaseNo.ToString() : "");
-            this.SubItems.Add(packPhase.werksP.werksId);
-            this.SubItems.Add(packPhase.werksP.name1);
-            this.SubItems.Add(packPhase.wave.waveId);
-            this.SubItems.Add(packPhase.wave.text);
+            this.Text = packPhase.issueId;
+            this.SubItems.Add(packPhase.IssuePhaseRowParent.IssueRow.text);
+            this.SubItems.Add(packPhase.IssuePhaseRowParent.phaseModel);
+            this.SubItems.Add(packPhase.IssuePhaseRowParent.phaseNo != 0 ? packPhase.IssuePhaseRowParent.phaseNo.ToString() : "");
+            this.SubItems.Add(packPhase.werksP);
+            this.SubItems.Add(packPhase.WerksRow.name1);
+            this.SubItems.Add(packPhase.WaveRow.waveId);
+            this.SubItems.Add(packPhase.WaveRow.text);
             this.SubItems.Add(packPhase.active ? "Y" : "N");
         }
     }

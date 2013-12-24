@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RSDataSet" targetNamespace="http://tempuri.org/RSDataSet.xsd" xmlns:mstns="http://tempuri.org/RSDataSet.xsd" xmlns="http://tempuri.org/RSDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RSDataSet" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true" msdata:Prefix="RouteSplit.Schema" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RSDataSet" msprop:Generator_UserDSName="RSDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Werks" msdata:CaseSensitive="True" msprop:Generator_TableClassName="WerksDataTable" msprop:Generator_TableVarName="tableWerks" msprop:Generator_TablePropName="Werks" msprop:Generator_RowDeletingName="WerksRowDeleting" msprop:Generator_RowChangingName="WerksRowChanging" msprop:Generator_RowEvHandlerName="WerksRowChangeEventHandler" msprop:Generator_RowDeletedName="WerksRowDeleted" msprop:Generator_UserTableName="Werks" msprop:Generator_RowChangedName="WerksRowChanged" msprop:Generator_RowEvArgName="WerksRowChangeEvent" msprop:Generator_RowClassName="WerksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werks" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnwerks" msprop:Generator_ColumnPropNameInRow="werks" msprop:Generator_ColumnPropNameInTable="werksColumn" msprop:Generator_UserColumnName="werks">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name1" msprop:Generator_ColumnVarNameInTable="columnname1" msprop:Generator_ColumnPropNameInRow="name1" msprop:Generator_ColumnPropNameInTable="name1Column" msprop:Generator_UserColumnName="name1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zone" msprop:Generator_ColumnVarNameInTable="columnzone" msprop:Generator_ColumnPropNameInRow="zone" msprop:Generator_ColumnPropNameInTable="zoneColumn" msprop:Generator_UserColumnName="zone" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Wave" msdata:CaseSensitive="True" msprop:Generator_TableClassName="WaveDataTable" msprop:Generator_TableVarName="tableWave" msprop:Generator_TablePropName="Wave" msprop:Generator_RowDeletingName="WaveRowDeleting" msprop:Generator_RowChangingName="WaveRowChanging" msprop:Generator_RowEvHandlerName="WaveRowChangeEventHandler" msprop:Generator_RowDeletedName="WaveRowDeleted" msprop:Generator_UserTableName="Wave" msprop:Generator_RowChangedName="WaveRowChanged" msprop:Generator_RowEvArgName="WaveRowChangeEvent" msprop:Generator_RowClassName="WaveRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="waveId" msprop:Generator_ColumnVarNameInTable="columnwaveId" msprop:Generator_ColumnPropNameInRow="waveId" msprop:Generator_ColumnPropNameInTable="waveIdColumn" msprop:Generator_UserColumnName="waveId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kardexCheck" msprop:Generator_ColumnVarNameInTable="columnkardexCheck" msprop:Generator_ColumnPropNameInRow="kardexCheck" msprop:Generator_ColumnPropNameInTable="kardexCheckColumn" msprop:Generator_UserColumnName="kardexCheck" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Template" msdata:CaseSensitive="True" msprop:Generator_TableClassName="TemplateDataTable" msprop:Generator_TableVarName="tableTemplate" msprop:Generator_TablePropName="Template" msprop:Generator_RowDeletingName="TemplateRowDeleting" msprop:Generator_RowChangingName="TemplateRowChanging" msprop:Generator_RowEvHandlerName="TemplateRowChangeEventHandler" msprop:Generator_RowDeletedName="TemplateRowDeleted" msprop:Generator_UserTableName="Template" msprop:Generator_RowChangedName="TemplateRowChanged" msprop:Generator_RowEvArgName="TemplateRowChangeEvent" msprop:Generator_RowClassName="TemplateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksP" msprop:Generator_ColumnVarNameInTable="columnwerksP" msprop:Generator_ColumnPropNameInRow="werksP" msprop:Generator_ColumnPropNameInTable="werksPColumn" msprop:Generator_UserColumnName="werksP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="templateName" msprop:Generator_ColumnVarNameInTable="columntemplateName" msprop:Generator_ColumnPropNameInRow="templateName" msprop:Generator_ColumnPropNameInTable="templateNameColumn" msprop:Generator_UserColumnName="templateName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="waveId" msprop:Generator_ColumnVarNameInTable="columnwaveId" msprop:Generator_ColumnPropNameInRow="waveId" msprop:Generator_ColumnPropNameInTable="waveIdColumn" msprop:Generator_UserColumnName="waveId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VPTypeGroup" msdata:CaseSensitive="True" msprop:Generator_TableClassName="VPTypeGroupDataTable" msprop:Generator_TableVarName="tableVPTypeGroup" msprop:Generator_TablePropName="VPTypeGroup" msprop:Generator_RowDeletingName="VPTypeGroupRowDeleting" msprop:Generator_RowChangingName="VPTypeGroupRowChanging" msprop:Generator_RowEvHandlerName="VPTypeGroupRowChangeEventHandler" msprop:Generator_RowDeletedName="VPTypeGroupRowDeleted" msprop:Generator_UserTableName="VPTypeGroup" msprop:Generator_RowChangedName="VPTypeGroupRowChanged" msprop:Generator_RowEvArgName="VPTypeGroupRowChangeEvent" msprop:Generator_RowClassName="VPTypeGroupRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vpTypeGroupId" msprop:Generator_ColumnVarNameInTable="columnvpTypeGroupId" msprop:Generator_ColumnPropNameInRow="vpTypeGroupId" msprop:Generator_ColumnPropNameInTable="vpTypeGroupIdColumn" msprop:Generator_UserColumnName="vpTypeGroupId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VPTypeGroupConfig" msdata:CaseSensitive="True" msprop:Generator_TableClassName="VPTypeGroupConfigDataTable" msprop:Generator_TableVarName="tableVPTypeGroupConfig" msprop:Generator_TablePropName="VPTypeGroupConfig" msprop:Generator_RowDeletingName="VPTypeGroupConfigRowDeleting" msprop:Generator_RowChangingName="VPTypeGroupConfigRowChanging" msprop:Generator_RowEvHandlerName="VPTypeGroupConfigRowChangeEventHandler" msprop:Generator_RowDeletedName="VPTypeGroupConfigRowDeleted" msprop:Generator_UserTableName="VPTypeGroupConfig" msprop:Generator_RowChangedName="VPTypeGroupConfigRowChanged" msprop:Generator_RowEvArgName="VPTypeGroupConfigRowChangeEvent" msprop:Generator_RowClassName="VPTypeGroupConfigRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksS" msprop:Generator_ColumnVarNameInTable="columnwerksS" msprop:Generator_ColumnPropNameInRow="werksS" msprop:Generator_ColumnPropNameInTable="werksSColumn" msprop:Generator_UserColumnName="werksS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vpTypeGroupId" msprop:Generator_ColumnVarNameInTable="columnvpTypeGroupId" msprop:Generator_ColumnPropNameInRow="vpTypeGroupId" msprop:Generator_ColumnPropNameInTable="vpTypeGroupIdColumn" msprop:Generator_UserColumnName="vpTypeGroupId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VPType" msdata:CaseSensitive="True" msprop:Generator_TableClassName="VPTypeDataTable" msprop:Generator_TableVarName="tableVPType" msprop:Generator_TablePropName="VPType" msprop:Generator_RowDeletingName="VPTypeRowDeleting" msprop:Generator_RowChangingName="VPTypeRowChanging" msprop:Generator_RowEvHandlerName="VPTypeRowChangeEventHandler" msprop:Generator_RowDeletedName="VPTypeRowDeleted" msprop:Generator_UserTableName="VPType" msprop:Generator_RowChangedName="VPTypeRowChanged" msprop:Generator_RowEvArgName="VPTypeRowChangeEvent" msprop:Generator_RowClassName="VPTypeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vpTypeId" msprop:Generator_ColumnVarNameInTable="columnvpTypeId" msprop:Generator_ColumnPropNameInRow="vpTypeId" msprop:Generator_ColumnPropNameInTable="vpTypeIdColumn" msprop:Generator_UserColumnName="vpTypeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dummyType" msprop:Generator_ColumnVarNameInTable="columndummyType" msprop:Generator_ColumnPropNameInRow="dummyType" msprop:Generator_ColumnPropNameInTable="dummyTypeColumn" msprop:Generator_UserColumnName="dummyType" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VPTypeGroupItem" msdata:CaseSensitive="True" msprop:Generator_TableClassName="VPTypeGroupItemDataTable" msprop:Generator_TableVarName="tableVPTypeGroupItem" msprop:Generator_TablePropName="VPTypeGroupItem" msprop:Generator_RowDeletingName="VPTypeGroupItemRowDeleting" msprop:Generator_RowChangingName="VPTypeGroupItemRowChanging" msprop:Generator_RowEvHandlerName="VPTypeGroupItemRowChangeEventHandler" msprop:Generator_RowDeletedName="VPTypeGroupItemRowDeleted" msprop:Generator_UserTableName="VPTypeGroupItem" msprop:Generator_RowChangedName="VPTypeGroupItemRowChanged" msprop:Generator_RowEvArgName="VPTypeGroupItemRowChangeEvent" msprop:Generator_RowClassName="VPTypeGroupItemRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vpTypeGroupId" msprop:Generator_ColumnVarNameInTable="columnvpTypeGroupId" msprop:Generator_ColumnPropNameInRow="vpTypeGroupId" msprop:Generator_ColumnPropNameInTable="vpTypeGroupIdColumn" msprop:Generator_UserColumnName="vpTypeGroupId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vpTypeId" msprop:Generator_ColumnVarNameInTable="columnvpTypeId" msprop:Generator_ColumnPropNameInRow="vpTypeId" msprop:Generator_ColumnPropNameInTable="vpTypeIdColumn" msprop:Generator_UserColumnName="vpTypeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="defaultSeq" msprop:Generator_ColumnVarNameInTable="columndefaultSeq" msprop:Generator_ColumnPropNameInRow="defaultSeq" msprop:Generator_ColumnPropNameInTable="defaultSeqColumn" msprop:Generator_UserColumnName="defaultSeq" type="xs:short" minOccurs="0" />
+              <xs:element name="defaultSel" msprop:Generator_ColumnVarNameInTable="columndefaultSel" msprop:Generator_ColumnPropNameInRow="defaultSel" msprop:Generator_ColumnPropNameInTable="defaultSelColumn" msprop:Generator_UserColumnName="defaultSel" type="xs:boolean" minOccurs="0" />
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VPTypeGroupItemConfig" msdata:CaseSensitive="True" msprop:Generator_TableClassName="VPTypeGroupItemConfigDataTable" msprop:Generator_TableVarName="tableVPTypeGroupItemConfig" msprop:Generator_TablePropName="VPTypeGroupItemConfig" msprop:Generator_RowDeletingName="VPTypeGroupItemConfigRowDeleting" msprop:Generator_RowChangingName="VPTypeGroupItemConfigRowChanging" msprop:Generator_RowEvHandlerName="VPTypeGroupItemConfigRowChangeEventHandler" msprop:Generator_RowDeletedName="VPTypeGroupItemConfigRowDeleted" msprop:Generator_UserTableName="VPTypeGroupItemConfig" msprop:Generator_RowChangedName="VPTypeGroupItemConfigRowChanged" msprop:Generator_RowEvArgName="VPTypeGroupItemConfigRowChangeEvent" msprop:Generator_RowClassName="VPTypeGroupItemConfigRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksS" msprop:Generator_ColumnVarNameInTable="columnwerksS" msprop:Generator_ColumnPropNameInRow="werksS" msprop:Generator_ColumnPropNameInTable="werksSColumn" msprop:Generator_UserColumnName="werksS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vpTypeGroupId" msprop:Generator_ColumnVarNameInTable="columnvpTypeGroupId" msprop:Generator_ColumnPropNameInRow="vpTypeGroupId" msprop:Generator_ColumnPropNameInTable="vpTypeGroupIdColumn" msprop:Generator_UserColumnName="vpTypeGroupId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vpTypeId" msprop:Generator_ColumnVarNameInTable="columnvpTypeId" msprop:Generator_ColumnPropNameInRow="vpTypeId" msprop:Generator_ColumnPropNameInTable="vpTypeIdColumn" msprop:Generator_UserColumnName="vpTypeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="available" msprop:Generator_ColumnVarNameInTable="columnavailable" msprop:Generator_ColumnPropNameInRow="available" msprop:Generator_ColumnPropNameInTable="availableColumn" msprop:Generator_UserColumnName="available" type="xs:boolean" minOccurs="0" />
+              <xs:element name="currentSeq" msprop:Generator_ColumnVarNameInTable="columncurrentSeq" msprop:Generator_ColumnPropNameInRow="currentSeq" msprop:Generator_ColumnPropNameInTable="currentSeqColumn" msprop:Generator_UserColumnName="currentSeq" type="xs:short" minOccurs="0" />
+              <xs:element name="currentSel" msprop:Generator_ColumnVarNameInTable="columncurrentSel" msprop:Generator_ColumnPropNameInRow="currentSel" msprop:Generator_ColumnPropNameInTable="currentSelColumn" msprop:Generator_UserColumnName="currentSel" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Process" msdata:CaseSensitive="True" msprop:Generator_TableClassName="ProcessDataTable" msprop:Generator_TableVarName="tableProcess" msprop:Generator_TablePropName="Process" msprop:Generator_RowDeletingName="ProcessRowDeleting" msprop:Generator_RowChangingName="ProcessRowChanging" msprop:Generator_RowEvHandlerName="ProcessRowChangeEventHandler" msprop:Generator_RowDeletedName="ProcessRowDeleted" msprop:Generator_UserTableName="Process" msprop:Generator_RowChangedName="ProcessRowChanged" msprop:Generator_RowEvArgName="ProcessRowChangeEvent" msprop:Generator_RowClassName="ProcessRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksP" msprop:Generator_ColumnVarNameInTable="columnwerksP" msprop:Generator_ColumnPropNameInRow="werksP" msprop:Generator_ColumnPropNameInTable="werksPColumn" msprop:Generator_UserColumnName="werksP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="templateName" msprop:Generator_ColumnVarNameInTable="columntemplateName" msprop:Generator_ColumnPropNameInRow="templateName" msprop:Generator_ColumnPropNameInTable="templateNameColumn" msprop:Generator_UserColumnName="templateName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="seqNo" msprop:Generator_ColumnVarNameInTable="columnseqNo" msprop:Generator_ColumnPropNameInRow="seqNo" msprop:Generator_ColumnPropNameInTable="seqNoColumn" msprop:Generator_UserColumnName="seqNo" type="xs:short" />
+              <xs:element name="shipDate" msprop:Generator_ColumnVarNameInTable="columnshipDate" msprop:Generator_ColumnPropNameInRow="shipDate" msprop:Generator_ColumnPropNameInTable="shipDateColumn" msprop:Generator_UserColumnName="shipDate" type="xs:dateTime" />
+              <xs:element name="extract" msprop:Generator_ColumnVarNameInTable="columnextract" msprop:Generator_ColumnPropNameInRow="extract" msprop:Generator_ColumnPropNameInTable="extractColumn" msprop:Generator_UserColumnName="extract" type="xs:boolean" minOccurs="0" />
+              <xs:element name="unassigned" msprop:Generator_ColumnVarNameInTable="columnunassigned" msprop:Generator_ColumnPropNameInRow="unassigned" msprop:Generator_ColumnPropNameInTable="unassignedColumn" msprop:Generator_UserColumnName="unassigned" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Route" msdata:CaseSensitive="True" msprop:Generator_TableClassName="RouteDataTable" msprop:Generator_TableVarName="tableRoute" msprop:Generator_TablePropName="Route" msprop:Generator_RowDeletingName="RouteRowDeleting" msprop:Generator_RowChangingName="RouteRowChanging" msprop:Generator_RowEvHandlerName="RouteRowChangeEventHandler" msprop:Generator_RowDeletedName="RouteRowDeleted" msprop:Generator_UserTableName="Route" msprop:Generator_RowChangedName="RouteRowChanged" msprop:Generator_RowEvArgName="RouteRowChangeEvent" msprop:Generator_RowClassName="RouteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksS" msprop:Generator_ColumnVarNameInTable="columnwerksS" msprop:Generator_ColumnPropNameInRow="werksS" msprop:Generator_ColumnPropNameInTable="werksSColumn" msprop:Generator_UserColumnName="werksS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="routeId" msprop:Generator_ColumnVarNameInTable="columnrouteId" msprop:Generator_ColumnPropNameInRow="routeId" msprop:Generator_ColumnPropNameInTable="routeIdColumn" msprop:Generator_UserColumnName="routeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vpTypeId" msprop:Generator_ColumnVarNameInTable="columnvpTypeId" msprop:Generator_ColumnPropNameInRow="vpTypeId" msprop:Generator_ColumnPropNameInTable="vpTypeIdColumn" msprop:Generator_UserColumnName="vpTypeId" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Kunwe" msdata:CaseSensitive="True" msprop:Generator_TableClassName="KunweDataTable" msprop:Generator_TableVarName="tableKunwe" msprop:Generator_TablePropName="Kunwe" msprop:Generator_RowDeletingName="KunweRowDeleting" msprop:Generator_RowChangingName="KunweRowChanging" msprop:Generator_RowEvHandlerName="KunweRowChangeEventHandler" msprop:Generator_RowDeletedName="KunweRowDeleted" msprop:Generator_UserTableName="Kunwe" msprop:Generator_RowChangedName="KunweRowChanged" msprop:Generator_RowEvArgName="KunweRowChangeEvent" msprop:Generator_RowClassName="KunweRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kunweId" msprop:Generator_ColumnVarNameInTable="columnkunweId" msprop:Generator_ColumnPropNameInRow="kunweId" msprop:Generator_ColumnPropNameInTable="kunweIdColumn" msprop:Generator_UserColumnName="kunweId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="werksS" msprop:Generator_ColumnVarNameInTable="columnwerksS" msprop:Generator_ColumnPropNameInRow="werksS" msprop:Generator_ColumnPropNameInTable="werksSColumn" msprop:Generator_UserColumnName="werksS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kardex" msprop:Generator_ColumnVarNameInTable="columnkardex" msprop:Generator_ColumnPropNameInRow="kardex" msprop:Generator_ColumnPropNameInTable="kardexColumn" msprop:Generator_UserColumnName="kardex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Drop" msdata:CaseSensitive="True" msprop:Generator_TableClassName="DropDataTable" msprop:Generator_TableVarName="tableDrop" msprop:Generator_TablePropName="Drop" msprop:Generator_RowDeletingName="DropRowDeleting" msprop:Generator_RowChangingName="DropRowChanging" msprop:Generator_RowEvHandlerName="DropRowChangeEventHandler" msprop:Generator_RowDeletedName="DropRowDeleted" msprop:Generator_UserTableName="Drop" msprop:Generator_RowChangedName="DropRowChanged" msprop:Generator_RowEvArgName="DropRowChangeEvent" msprop:Generator_RowClassName="DropRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksS" msprop:Generator_ColumnVarNameInTable="columnwerksS" msprop:Generator_ColumnPropNameInRow="werksS" msprop:Generator_ColumnPropNameInTable="werksSColumn" msprop:Generator_UserColumnName="werksS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="routeId" msprop:Generator_ColumnVarNameInTable="columnrouteId" msprop:Generator_ColumnPropNameInRow="routeId" msprop:Generator_ColumnPropNameInTable="routeIdColumn" msprop:Generator_UserColumnName="routeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kunweId" msprop:Generator_ColumnVarNameInTable="columnkunweId" msprop:Generator_ColumnPropNameInRow="kunweId" msprop:Generator_ColumnPropNameInTable="kunweIdColumn" msprop:Generator_UserColumnName="kunweId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sequ" msprop:Generator_ColumnVarNameInTable="columnsequ" msprop:Generator_ColumnPropNameInRow="sequ" msprop:Generator_ColumnPropNameInTable="sequColumn" msprop:Generator_UserColumnName="sequ" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Issue" msdata:CaseSensitive="True" msprop:Generator_TableClassName="IssueDataTable" msprop:Generator_TableVarName="tableIssue" msprop:Generator_TablePropName="Issue" msprop:Generator_RowDeletingName="IssueRowDeleting" msprop:Generator_RowChangingName="IssueRowChanging" msprop:Generator_RowEvHandlerName="IssueRowChangeEventHandler" msprop:Generator_RowDeletedName="IssueRowDeleted" msprop:Generator_UserTableName="Issue" msprop:Generator_RowChangedName="IssueRowChanged" msprop:Generator_RowEvArgName="IssueRowChangeEvent" msprop:Generator_RowClassName="IssueRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="text" msprop:Generator_ColumnVarNameInTable="columntext" msprop:Generator_ColumnPropNameInRow="text" msprop:Generator_ColumnPropNameInTable="textColumn" msprop:Generator_UserColumnName="text" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IssueWerks" msdata:CaseSensitive="True" msdata:Locale="en-GB" msprop:Generator_TableClassName="IssueWerksDataTable" msprop:Generator_TableVarName="tableIssueWerks" msprop:Generator_TablePropName="IssueWerks" msprop:Generator_RowDeletingName="IssueWerksRowDeleting" msprop:Generator_RowChangingName="IssueWerksRowChanging" msprop:Generator_RowEvHandlerName="IssueWerksRowChangeEventHandler" msprop:Generator_RowDeletedName="IssueWerksRowDeleted" msprop:Generator_UserTableName="IssueWerks" msprop:Generator_RowChangedName="IssueWerksRowChanged" msprop:Generator_RowEvArgName="IssueWerksRowChangeEvent" msprop:Generator_RowClassName="IssueWerksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="werksC" msprop:Generator_ColumnVarNameInTable="columnwerksC" msprop:Generator_ColumnPropNameInRow="werksC" msprop:Generator_ColumnPropNameInTable="werksCColumn" msprop:Generator_UserColumnName="werksC">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="weight" msprop:Generator_ColumnVarNameInTable="columnweight" msprop:Generator_ColumnPropNameInRow="weight" msprop:Generator_ColumnPropNameInTable="weightColumn" msprop:Generator_UserColumnName="weight" type="xs:decimal" minOccurs="0" />
+              <xs:element name="bunSize" msprop:Generator_ColumnVarNameInTable="columnbunSize" msprop:Generator_ColumnPropNameInRow="bunSize" msprop:Generator_ColumnPropNameInTable="bunSizeColumn" msprop:Generator_UserColumnName="bunSize" type="xs:short" minOccurs="0" />
+              <xs:element name="bunWeight" msprop:Generator_ColumnVarNameInTable="columnbunWeight" msprop:Generator_ColumnPropNameInRow="bunWeight" msprop:Generator_ColumnPropNameInTable="bunWeightColumn" msprop:Generator_UserColumnName="bunWeight" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Contract" msdata:CaseSensitive="True" msprop:Generator_TableClassName="ContractDataTable" msprop:Generator_TableVarName="tableContract" msprop:Generator_TablePropName="Contract" msprop:Generator_RowDeletingName="ContractRowDeleting" msprop:Generator_RowChangingName="ContractRowChanging" msprop:Generator_RowEvHandlerName="ContractRowChangeEventHandler" msprop:Generator_RowDeletedName="ContractRowDeleted" msprop:Generator_UserTableName="Contract" msprop:Generator_RowChangedName="ContractRowChanged" msprop:Generator_RowEvArgName="ContractRowChangeEvent" msprop:Generator_RowClassName="ContractRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kunweId" msprop:Generator_ColumnVarNameInTable="columnkunweId" msprop:Generator_ColumnPropNameInRow="kunweId" msprop:Generator_ColumnPropNameInTable="kunweIdColumn" msprop:Generator_UserColumnName="kunweId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="werksC" msprop:Generator_ColumnVarNameInTable="columnwerksC" msprop:Generator_ColumnPropNameInRow="werksC" msprop:Generator_ColumnPropNameInTable="werksCColumn" msprop:Generator_UserColumnName="werksC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IssuePhase" msdata:CaseSensitive="True" msprop:Generator_TableClassName="IssuePhaseDataTable" msprop:Generator_TableVarName="tableIssuePhase" msprop:Generator_TablePropName="IssuePhase" msprop:Generator_RowDeletingName="IssuePhaseRowDeleting" msprop:Generator_RowChangingName="IssuePhaseRowChanging" msprop:Generator_RowEvHandlerName="IssuePhaseRowChangeEventHandler" msprop:Generator_RowDeletedName="IssuePhaseRowDeleted" msprop:Generator_UserTableName="IssuePhase" msprop:Generator_RowChangedName="IssuePhaseRowChanged" msprop:Generator_RowEvArgName="IssuePhaseRowChangeEvent" msprop:Generator_RowClassName="IssuePhaseRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseModel" msprop:Generator_ColumnVarNameInTable="columnphaseModel" msprop:Generator_ColumnPropNameInRow="phaseModel" msprop:Generator_ColumnPropNameInTable="phaseModelColumn" msprop:Generator_UserColumnName="phaseModel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseNo" msprop:Generator_ColumnVarNameInTable="columnphaseNo" msprop:Generator_ColumnPropNameInRow="phaseNo" msprop:Generator_ColumnPropNameInTable="phaseNoColumn" msprop:Generator_UserColumnName="phaseNo" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PackPhase" msdata:CaseSensitive="True" msprop:Generator_TableClassName="PackPhaseDataTable" msprop:Generator_TableVarName="tablePackPhase" msprop:Generator_TablePropName="PackPhase" msprop:Generator_RowDeletingName="PackPhaseRowDeleting" msprop:Generator_RowChangingName="PackPhaseRowChanging" msprop:Generator_RowEvHandlerName="PackPhaseRowChangeEventHandler" msprop:Generator_RowDeletedName="PackPhaseRowDeleted" msprop:Generator_UserTableName="PackPhase" msprop:Generator_RowChangedName="PackPhaseRowChanged" msprop:Generator_RowEvArgName="PackPhaseRowChangeEvent" msprop:Generator_RowClassName="PackPhaseRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseModel" msprop:Generator_ColumnVarNameInTable="columnphaseModel" msprop:Generator_ColumnPropNameInRow="phaseModel" msprop:Generator_ColumnPropNameInTable="phaseModelColumn" msprop:Generator_UserColumnName="phaseModel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseNo" msprop:Generator_ColumnVarNameInTable="columnphaseNo" msprop:Generator_ColumnPropNameInRow="phaseNo" msprop:Generator_ColumnPropNameInTable="phaseNoColumn" msprop:Generator_UserColumnName="phaseNo" type="xs:decimal" />
+              <xs:element name="werksP" msprop:Generator_ColumnVarNameInTable="columnwerksP" msprop:Generator_ColumnPropNameInRow="werksP" msprop:Generator_ColumnPropNameInTable="werksPColumn" msprop:Generator_UserColumnName="werksP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="active" msprop:Generator_ColumnVarNameInTable="columnactive" msprop:Generator_ColumnPropNameInRow="active" msprop:Generator_ColumnPropNameInTable="activeColumn" msprop:Generator_UserColumnName="active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="waveId" msprop:Generator_ColumnVarNameInTable="columnwaveId" msprop:Generator_ColumnPropNameInRow="waveId" msprop:Generator_ColumnPropNameInTable="waveIdColumn" msprop:Generator_UserColumnName="waveId" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PhaseProcess" msdata:CaseSensitive="True" msprop:Generator_TableClassName="PhaseProcessDataTable" msprop:Generator_TableVarName="tablePhaseProcess" msprop:Generator_TablePropName="PhaseProcess" msprop:Generator_RowDeletingName="PhaseProcessRowDeleting" msprop:Generator_RowChangingName="PhaseProcessRowChanging" msprop:Generator_RowEvHandlerName="PhaseProcessRowChangeEventHandler" msprop:Generator_RowDeletedName="PhaseProcessRowDeleted" msprop:Generator_UserTableName="PhaseProcess" msprop:Generator_RowChangedName="PhaseProcessRowChanged" msprop:Generator_RowEvArgName="PhaseProcessRowChangeEvent" msprop:Generator_RowClassName="PhaseProcessRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseModel" msprop:Generator_ColumnVarNameInTable="columnphaseModel" msprop:Generator_ColumnPropNameInRow="phaseModel" msprop:Generator_ColumnPropNameInTable="phaseModelColumn" msprop:Generator_UserColumnName="phaseModel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseNo" msprop:Generator_ColumnVarNameInTable="columnphaseNo" msprop:Generator_ColumnPropNameInRow="phaseNo" msprop:Generator_ColumnPropNameInTable="phaseNoColumn" msprop:Generator_UserColumnName="phaseNo" type="xs:decimal" />
+              <xs:element name="werksP" msprop:Generator_ColumnVarNameInTable="columnwerksP" msprop:Generator_ColumnPropNameInRow="werksP" msprop:Generator_ColumnPropNameInTable="werksPColumn" msprop:Generator_UserColumnName="werksP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="templateName" msprop:Generator_ColumnVarNameInTable="columntemplateName" msprop:Generator_ColumnPropNameInRow="templateName" msprop:Generator_ColumnPropNameInTable="templateNameColumn" msprop:Generator_UserColumnName="templateName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="seqNo" msprop:Generator_ColumnVarNameInTable="columnseqNo" msprop:Generator_ColumnPropNameInRow="seqNo" msprop:Generator_ColumnPropNameInTable="seqNoColumn" msprop:Generator_UserColumnName="seqNo" type="xs:short" />
+              <xs:element name="shipDate" msprop:Generator_ColumnVarNameInTable="columnshipDate" msprop:Generator_ColumnPropNameInRow="shipDate" msprop:Generator_ColumnPropNameInTable="shipDateColumn" msprop:Generator_UserColumnName="shipDate" type="xs:dateTime" />
+              <xs:element name="assigned" msprop:Generator_ColumnVarNameInTable="columnassigned" msprop:Generator_ColumnPropNameInRow="assigned" msprop:Generator_ColumnPropNameInTable="assignedColumn" msprop:Generator_UserColumnName="assigned" type="xs:boolean" minOccurs="0" />
+              <xs:element name="extracted" msprop:Generator_ColumnVarNameInTable="columnextracted" msprop:Generator_ColumnPropNameInRow="extracted" msprop:Generator_ColumnPropNameInTable="extractedColumn" msprop:Generator_UserColumnName="extracted" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Demand" msdata:CaseSensitive="True" msprop:Generator_TableClassName="DemandDataTable" msprop:Generator_TableVarName="tableDemand" msprop:Generator_TablePropName="Demand" msprop:Generator_RowDeletingName="DemandRowDeleting" msprop:Generator_RowChangingName="DemandRowChanging" msprop:Generator_RowEvHandlerName="DemandRowChangeEventHandler" msprop:Generator_RowDeletedName="DemandRowDeleted" msprop:Generator_UserTableName="Demand" msprop:Generator_RowChangedName="DemandRowChanged" msprop:Generator_RowEvArgName="DemandRowChangeEvent" msprop:Generator_RowClassName="DemandRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="issueId" msprop:Generator_ColumnVarNameInTable="columnissueId" msprop:Generator_ColumnPropNameInRow="issueId" msprop:Generator_ColumnPropNameInTable="issueIdColumn" msprop:Generator_UserColumnName="issueId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseModel" msprop:Generator_ColumnVarNameInTable="columnphaseModel" msprop:Generator_ColumnPropNameInRow="phaseModel" msprop:Generator_ColumnPropNameInTable="phaseModelColumn" msprop:Generator_UserColumnName="phaseModel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phaseNo" msprop:Generator_ColumnVarNameInTable="columnphaseNo" msprop:Generator_ColumnPropNameInRow="phaseNo" msprop:Generator_ColumnPropNameInTable="phaseNoColumn" msprop:Generator_UserColumnName="phaseNo" type="xs:decimal" />
+              <xs:element name="kunweId" msprop:Generator_ColumnVarNameInTable="columnkunweId" msprop:Generator_ColumnPropNameInRow="kunweId" msprop:Generator_ColumnPropNameInTable="kunweIdColumn" msprop:Generator_UserColumnName="kunweId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="copies" msprop:Generator_ColumnVarNameInTable="columncopies" msprop:Generator_ColumnPropNameInRow="copies" msprop:Generator_ColumnPropNameInTable="copiesColumn" msprop:Generator_UserColumnName="copies" type="xs:int" minOccurs="0" />
+              <xs:element name="picks" msprop:Generator_ColumnVarNameInTable="columnpicks" msprop:Generator_ColumnPropNameInRow="picks" msprop:Generator_ColumnPropNameInTable="picksColumn" msprop:Generator_UserColumnName="picks" type="xs:int" minOccurs="0" />
+              <xs:element name="weight" msprop:Generator_ColumnVarNameInTable="columnweight" msprop:Generator_ColumnPropNameInRow="weight" msprop:Generator_ColumnPropNameInTable="weightColumn" msprop:Generator_UserColumnName="weight" type="xs:decimal" minOccurs="0" />
+              <xs:element name="origWerksC" msprop:Generator_ColumnVarNameInTable="columnorigWerksC" msprop:Generator_ColumnPropNameInRow="origWerksC" msprop:Generator_ColumnPropNameInTable="origWerksCColumn" msprop:Generator_UserColumnName="origWerksC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="werksPCache" msprop:Generator_ColumnVarNameInTable="columnwerksPCache" msprop:Generator_ColumnPropNameInRow="werksPCache" msprop:Generator_ColumnPropNameInTable="werksPCacheColumn" msprop:Generator_UserColumnName="werksPCache" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="templateNameCache" msprop:Generator_ColumnVarNameInTable="columntemplateNameCache" msprop:Generator_ColumnPropNameInRow="templateNameCache" msprop:Generator_ColumnPropNameInTable="templateNameCacheColumn" msprop:Generator_UserColumnName="templateNameCache" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="seqNoCache" msprop:Generator_ColumnVarNameInTable="columnseqNoCache" msprop:Generator_ColumnPropNameInRow="seqNoCache" msprop:Generator_ColumnPropNameInTable="seqNoCacheColumn" msprop:Generator_UserColumnName="seqNoCache" type="xs:short" minOccurs="0" />
+              <xs:element name="shipDateCache" msprop:Generator_ColumnVarNameInTable="columnshipDateCache" msprop:Generator_ColumnPropNameInRow="shipDateCache" msprop:Generator_ColumnPropNameInTable="shipDateCacheColumn" msprop:Generator_UserColumnName="shipDateCache" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SubRoute" msdata:CaseSensitive="True" msprop:Generator_TableClassName="SubRouteDataTable" msprop:Generator_TableVarName="tableSubRoute" msprop:Generator_TablePropName="SubRoute" msprop:Generator_RowDeletingName="SubRouteRowDeleting" msprop:Generator_RowChangingName="SubRouteRowChanging" msprop:Generator_RowEvHandlerName="SubRouteRowChangeEventHandler" msprop:Generator_RowDeletedName="SubRouteRowDeleted" msprop:Generator_UserTableName="SubRoute" msprop:Generator_RowChangedName="SubRouteRowChanged" msprop:Generator_RowEvArgName="SubRouteRowChangeEvent" msprop:Generator_RowClassName="SubRouteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="werksS" msprop:Generator_ColumnVarNameInTable="columnwerksS" msprop:Generator_ColumnPropNameInRow="werksS" msprop:Generator_ColumnPropNameInTable="werksSColumn" msprop:Generator_UserColumnName="werksS">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="routeId" msprop:Generator_ColumnVarNameInTable="columnrouteId" msprop:Generator_ColumnPropNameInRow="routeId" msprop:Generator_ColumnPropNameInTable="routeIdColumn" msprop:Generator_UserColumnName="routeId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subRouteId" msprop:Generator_ColumnVarNameInTable="columnsubRouteId" msprop:Generator_ColumnPropNameInRow="subRouteId" msprop:Generator_ColumnPropNameInTable="subRouteIdColumn" msprop:Generator_UserColumnName="subRouteId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="werksC" msprop:Generator_ColumnVarNameInTable="columnwerksC" msprop:Generator_ColumnPropNameInRow="werksC" msprop:Generator_ColumnPropNameInTable="werksCColumn" msprop:Generator_UserColumnName="werksC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="origWerksP" msprop:Generator_ColumnVarNameInTable="columnorigWerksP" msprop:Generator_ColumnPropNameInRow="origWerksP" msprop:Generator_ColumnPropNameInTable="origWerksPColumn" msprop:Generator_UserColumnName="origWerksP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="werksP" msprop:Generator_ColumnVarNameInTable="columnwerksP" msprop:Generator_ColumnPropNameInRow="werksP" msprop:Generator_ColumnPropNameInTable="werksPColumn" msprop:Generator_UserColumnName="werksP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="templateName" msprop:Generator_ColumnVarNameInTable="columntemplateName" msprop:Generator_ColumnPropNameInRow="templateName" msprop:Generator_ColumnPropNameInTable="templateNameColumn" msprop:Generator_UserColumnName="templateName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="seqNo" msprop:Generator_ColumnVarNameInTable="columnseqNo" msprop:Generator_ColumnPropNameInRow="seqNo" msprop:Generator_ColumnPropNameInTable="seqNoColumn" msprop:Generator_UserColumnName="seqNo" type="xs:short" minOccurs="0" />
+              <xs:element name="shipDate" msprop:Generator_ColumnVarNameInTable="columnshipDate" msprop:Generator_ColumnPropNameInRow="shipDate" msprop:Generator_ColumnPropNameInTable="shipDateColumn" msprop:Generator_UserColumnName="shipDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Config" msdata:CaseSensitive="True" msprop:Generator_TableClassName="ConfigDataTable" msprop:Generator_TableVarName="tableConfig" msprop:Generator_TablePropName="Config" msprop:Generator_RowDeletingName="ConfigRowDeleting" msprop:Generator_RowChangingName="ConfigRowChanging" msprop:Generator_RowEvHandlerName="ConfigRowChangeEventHandler" msprop:Generator_RowDeletedName="ConfigRowDeleted" msprop:Generator_UserTableName="Config" msprop:Generator_RowChangedName="ConfigRowChanged" msprop:Generator_RowEvArgName="ConfigRowChangeEvent" msprop:Generator_RowClassName="ConfigRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="visitListDate" msprop:Generator_ColumnVarNameInTable="columnvisitListDate" msprop:Generator_ColumnPropNameInRow="visitListDate" msprop:Generator_ColumnPropNameInTable="visitListDateColumn" msprop:Generator_UserColumnName="visitListDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="WerksPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Werks" />
+      <xs:field xpath="mstns:werks" />
+    </xs:unique>
+    <xs:unique name="WavePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Wave" />
+      <xs:field xpath="mstns:waveId" />
+    </xs:unique>
+    <xs:unique name="TemplatePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Template" />
+      <xs:field xpath="mstns:werksP" />
+      <xs:field xpath="mstns:templateName" />
+    </xs:unique>
+    <xs:unique name="VPTypeGroupPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VPTypeGroup" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+    </xs:unique>
+    <xs:unique name="VPTypeGroupConfigPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VPTypeGroupConfig" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+    </xs:unique>
+    <xs:unique name="VPTypePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VPType" />
+      <xs:field xpath="mstns:vpTypeId" />
+    </xs:unique>
+    <xs:unique name="VPTypeGroupItemPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VPTypeGroupItem" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+      <xs:field xpath="mstns:vpTypeId" />
+    </xs:unique>
+    <xs:unique name="VPTypeGroupItemConfigPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VPTypeGroupItemConfig" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+      <xs:field xpath="mstns:vpTypeId" />
+    </xs:unique>
+    <xs:unique name="ProcessPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Process" />
+      <xs:field xpath="mstns:werksP" />
+      <xs:field xpath="mstns:templateName" />
+      <xs:field xpath="mstns:seqNo" />
+      <xs:field xpath="mstns:shipDate" />
+    </xs:unique>
+    <xs:unique name="RoutePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Route" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:routeId" />
+    </xs:unique>
+    <xs:unique name="KunwePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Kunwe" />
+      <xs:field xpath="mstns:kunweId" />
+    </xs:unique>
+    <xs:unique name="DropPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Drop" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:routeId" />
+      <xs:field xpath="mstns:kunweId" />
+    </xs:unique>
+    <xs:unique name="IssuePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Issue" />
+      <xs:field xpath="mstns:issueId" />
+    </xs:unique>
+    <xs:unique name="IssueWerksPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IssueWerks" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:werksC" />
+    </xs:unique>
+    <xs:unique name="ContractPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Contract" />
+      <xs:field xpath="mstns:kunweId" />
+      <xs:field xpath="mstns:issueId" />
+    </xs:unique>
+    <xs:unique name="IssuePhasePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IssuePhase" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+    </xs:unique>
+    <xs:unique name="PackPhasePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PackPhase" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+      <xs:field xpath="mstns:werksP" />
+    </xs:unique>
+    <xs:unique name="PhaseProcessPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PhaseProcess" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+      <xs:field xpath="mstns:werksP" />
+      <xs:field xpath="mstns:templateName" />
+      <xs:field xpath="mstns:seqNo" />
+      <xs:field xpath="mstns:shipDate" />
+    </xs:unique>
+    <xs:unique name="DemandPK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Demand" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+      <xs:field xpath="mstns:kunweId" />
+    </xs:unique>
+    <xs:unique name="SubRoutePK" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SubRoute" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:routeId" />
+      <xs:field xpath="mstns:subRouteId" />
+    </xs:unique>
+    <xs:keyref name="FK_Process_SubRoute" refer="ProcessPK" msprop:rel_Generator_UserChildTable="SubRoute" msprop:rel_Generator_ChildPropName="GetSubRouteRows" msprop:rel_Generator_UserRelationName="FK_Process_SubRoute" msprop:rel_Generator_ParentPropName="ProcessRowParent" msprop:rel_Generator_RelationVarName="relationFK_Process_SubRoute" msprop:rel_Generator_UserParentTable="Process">
+      <xs:selector xpath=".//mstns:SubRoute" />
+      <xs:field xpath="mstns:werksP" />
+      <xs:field xpath="mstns:templateName" />
+      <xs:field xpath="mstns:seqNo" />
+      <xs:field xpath="mstns:shipDate" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_SubRoute1" refer="WerksPK" msprop:rel_Generator_UserChildTable="SubRoute" msprop:rel_Generator_ChildPropName="GetSubRouteRowsByFK_Werks_SubRoute1" msprop:rel_Generator_UserRelationName="FK_Werks_SubRoute1" msprop:rel_Generator_ParentPropName="WerksRowByFK_Werks_SubRoute1" msprop:rel_Generator_RelationVarName="relationFK_Werks_SubRoute1" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:SubRoute" />
+      <xs:field xpath="mstns:origWerksP" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_SubRoute" refer="WerksPK" msprop:rel_Generator_UserChildTable="SubRoute" msprop:rel_Generator_ChildPropName="GetSubRouteRowsByFK_Werks_SubRoute" msprop:rel_Generator_UserRelationName="FK_Werks_SubRoute" msprop:rel_Generator_ParentPropName="WerksRowByFK_Werks_SubRoute" msprop:rel_Generator_RelationVarName="relationFK_Werks_SubRoute" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:SubRoute" />
+      <xs:field xpath="mstns:werksC" />
+    </xs:keyref>
+    <xs:keyref name="FK_Route_SubRoute" refer="RoutePK" msprop:rel_Generator_UserChildTable="SubRoute" msprop:rel_Generator_ChildPropName="GetSubRouteRows" msprop:rel_Generator_UserRelationName="FK_Route_SubRoute" msprop:rel_Generator_ParentPropName="RouteRowParent" msprop:rel_Generator_RelationVarName="relationFK_Route_SubRoute" msprop:rel_Generator_UserParentTable="Route">
+      <xs:selector xpath=".//mstns:SubRoute" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:routeId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_Demand" refer="WerksPK" msprop:rel_Generator_UserChildTable="Demand" msprop:rel_Generator_ChildPropName="GetDemandRows" msprop:rel_Generator_UserRelationName="FK_Werks_Demand" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_Demand" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:Demand" />
+      <xs:field xpath="mstns:origWerksC" />
+    </xs:keyref>
+    <xs:keyref name="FK_Kunwe_Demand" refer="KunwePK" msprop:rel_Generator_UserChildTable="Demand" msprop:rel_Generator_ChildPropName="GetDemandRows" msprop:rel_Generator_UserRelationName="FK_Kunwe_Demand" msprop:rel_Generator_ParentPropName="KunweRow" msprop:rel_Generator_RelationVarName="relationFK_Kunwe_Demand" msprop:rel_Generator_UserParentTable="Kunwe">
+      <xs:selector xpath=".//mstns:Demand" />
+      <xs:field xpath="mstns:kunweId" />
+    </xs:keyref>
+    <xs:keyref name="FK_IssuePhase_Demand" refer="IssuePhasePK" msprop:rel_Generator_UserChildTable="Demand" msprop:rel_Generator_ChildPropName="GetDemandRows" msprop:rel_Generator_UserRelationName="FK_IssuePhase_Demand" msprop:rel_Generator_ParentPropName="IssuePhaseRowParent" msprop:rel_Generator_RelationVarName="relationFK_IssuePhase_Demand" msprop:rel_Generator_UserParentTable="IssuePhase">
+      <xs:selector xpath=".//mstns:Demand" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+    </xs:keyref>
+    <xs:keyref name="FK_Process_PhaseProcess" refer="ProcessPK" msprop:rel_Generator_UserChildTable="PhaseProcess" msprop:rel_Generator_ChildPropName="GetPhaseProcessRows" msprop:rel_Generator_UserRelationName="FK_Process_PhaseProcess" msprop:rel_Generator_ParentPropName="ProcessRowParent" msprop:rel_Generator_RelationVarName="relationFK_Process_PhaseProcess" msprop:rel_Generator_UserParentTable="Process">
+      <xs:selector xpath=".//mstns:PhaseProcess" />
+      <xs:field xpath="mstns:werksP" />
+      <xs:field xpath="mstns:templateName" />
+      <xs:field xpath="mstns:seqNo" />
+      <xs:field xpath="mstns:shipDate" />
+    </xs:keyref>
+    <xs:keyref name="FK_IssuePhase_PhaseProcess" refer="IssuePhasePK" msprop:rel_Generator_UserChildTable="PhaseProcess" msprop:rel_Generator_ChildPropName="GetPhaseProcessRows" msprop:rel_Generator_UserRelationName="FK_IssuePhase_PhaseProcess" msprop:rel_Generator_ParentPropName="IssuePhaseRowParent" msprop:rel_Generator_RelationVarName="relationFK_IssuePhase_PhaseProcess" msprop:rel_Generator_UserParentTable="IssuePhase">
+      <xs:selector xpath=".//mstns:PhaseProcess" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+    </xs:keyref>
+    <xs:keyref name="FK_Wave_PackPhase" refer="WavePK" msprop:rel_Generator_UserChildTable="PackPhase" msprop:rel_Generator_ChildPropName="GetPackPhaseRows" msprop:rel_Generator_UserRelationName="FK_Wave_PackPhase" msprop:rel_Generator_ParentPropName="WaveRow" msprop:rel_Generator_RelationVarName="relationFK_Wave_PackPhase" msprop:rel_Generator_UserParentTable="Wave">
+      <xs:selector xpath=".//mstns:PackPhase" />
+      <xs:field xpath="mstns:waveId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_PackPhase" refer="WerksPK" msprop:rel_Generator_UserChildTable="PackPhase" msprop:rel_Generator_ChildPropName="GetPackPhaseRows" msprop:rel_Generator_UserRelationName="FK_Werks_PackPhase" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_PackPhase" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:PackPhase" />
+      <xs:field xpath="mstns:werksP" />
+    </xs:keyref>
+    <xs:keyref name="FK_IssuePhase_PackPhase" refer="IssuePhasePK" msprop:rel_Generator_UserChildTable="PackPhase" msprop:rel_Generator_ChildPropName="GetPackPhaseRows" msprop:rel_Generator_UserRelationName="FK_IssuePhase_PackPhase" msprop:rel_Generator_ParentPropName="IssuePhaseRowParent" msprop:rel_Generator_RelationVarName="relationFK_IssuePhase_PackPhase" msprop:rel_Generator_UserParentTable="IssuePhase">
+      <xs:selector xpath=".//mstns:PackPhase" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:phaseModel" />
+      <xs:field xpath="mstns:phaseNo" />
+    </xs:keyref>
+    <xs:keyref name="FK_Issue_IssuePhase" refer="IssuePK" msprop:rel_Generator_UserChildTable="IssuePhase" msprop:rel_Generator_ChildPropName="GetIssuePhaseRows" msprop:rel_Generator_UserRelationName="FK_Issue_IssuePhase" msprop:rel_Generator_ParentPropName="IssueRow" msprop:rel_Generator_RelationVarName="relationFK_Issue_IssuePhase" msprop:rel_Generator_UserParentTable="Issue">
+      <xs:selector xpath=".//mstns:IssuePhase" />
+      <xs:field xpath="mstns:issueId" />
+    </xs:keyref>
+    <xs:keyref name="FK_IssueWerks_Contract" refer="IssueWerksPK" msprop:rel_Generator_UserChildTable="Contract" msprop:rel_Generator_ChildPropName="GetContractRows" msprop:rel_Generator_UserRelationName="FK_IssueWerks_Contract" msprop:rel_Generator_ParentPropName="IssueWerksRowParent" msprop:rel_Generator_RelationVarName="relationFK_IssueWerks_Contract" msprop:rel_Generator_UserParentTable="IssueWerks">
+      <xs:selector xpath=".//mstns:Contract" />
+      <xs:field xpath="mstns:issueId" />
+      <xs:field xpath="mstns:werksC" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_Contract" refer="WerksPK" msprop:rel_Generator_UserChildTable="Contract" msprop:rel_Generator_ChildPropName="GetContractRows" msprop:rel_Generator_UserRelationName="FK_Werks_Contract" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_Contract" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:Contract" />
+      <xs:field xpath="mstns:werksC" />
+    </xs:keyref>
+    <xs:keyref name="FK_Issue_Contract" refer="IssuePK" msprop:rel_Generator_UserChildTable="Contract" msprop:rel_Generator_ChildPropName="GetContractRows" msprop:rel_Generator_UserRelationName="FK_Issue_Contract" msprop:rel_Generator_ParentPropName="IssueRow" msprop:rel_Generator_RelationVarName="relationFK_Issue_Contract" msprop:rel_Generator_UserParentTable="Issue">
+      <xs:selector xpath=".//mstns:Contract" />
+      <xs:field xpath="mstns:issueId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Kunwe_Contract" refer="KunwePK" msprop:rel_Generator_UserChildTable="Contract" msprop:rel_Generator_ChildPropName="GetContractRows" msprop:rel_Generator_UserRelationName="FK_Kunwe_Contract" msprop:rel_Generator_ParentPropName="KunweRow" msprop:rel_Generator_RelationVarName="relationFK_Kunwe_Contract" msprop:rel_Generator_UserParentTable="Kunwe">
+      <xs:selector xpath=".//mstns:Contract" />
+      <xs:field xpath="mstns:kunweId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Issue_IssueWerks" refer="IssuePK" msprop:rel_Generator_UserChildTable="IssueWerks" msprop:rel_Generator_ChildPropName="GetIssueWerksRows" msprop:rel_Generator_UserRelationName="FK_Issue_IssueWerks" msprop:rel_Generator_ParentPropName="IssueRow" msprop:rel_Generator_RelationVarName="relationFK_Issue_IssueWerks" msprop:rel_Generator_UserParentTable="Issue">
+      <xs:selector xpath=".//mstns:IssueWerks" />
+      <xs:field xpath="mstns:issueId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_IssueWerks" refer="WerksPK" msprop:rel_Generator_UserChildTable="IssueWerks" msprop:rel_Generator_ChildPropName="GetIssueWerksRows" msprop:rel_Generator_UserRelationName="FK_Werks_IssueWerks" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_IssueWerks" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:IssueWerks" />
+      <xs:field xpath="mstns:werksC" />
+    </xs:keyref>
+    <xs:keyref name="FK_Kunwe_Drop" refer="KunwePK" msprop:rel_Generator_UserChildTable="Drop" msprop:rel_Generator_ChildPropName="GetDropRows" msprop:rel_Generator_UserRelationName="FK_Kunwe_Drop" msprop:rel_Generator_ParentPropName="KunweRow" msprop:rel_Generator_RelationVarName="relationFK_Kunwe_Drop" msprop:rel_Generator_UserParentTable="Kunwe">
+      <xs:selector xpath=".//mstns:Drop" />
+      <xs:field xpath="mstns:kunweId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Route_Drop" refer="RoutePK" msprop:rel_Generator_UserChildTable="Drop" msprop:rel_Generator_ChildPropName="GetDropRows" msprop:rel_Generator_UserRelationName="FK_Route_Drop" msprop:rel_Generator_ParentPropName="RouteRowParent" msprop:rel_Generator_RelationVarName="relationFK_Route_Drop" msprop:rel_Generator_UserParentTable="Route">
+      <xs:selector xpath=".//mstns:Drop" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:routeId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_Kunwe" refer="WerksPK" msprop:rel_Generator_UserChildTable="Kunwe" msprop:rel_Generator_ChildPropName="GetKunweRows" msprop:rel_Generator_UserRelationName="FK_Werks_Kunwe" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_Kunwe" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:Kunwe" />
+      <xs:field xpath="mstns:werksS" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_Route" refer="WerksPK" msprop:rel_Generator_UserChildTable="Route" msprop:rel_Generator_ChildPropName="GetRouteRows" msprop:rel_Generator_UserRelationName="FK_Werks_Route" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_Route" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:Route" />
+      <xs:field xpath="mstns:werksS" />
+    </xs:keyref>
+    <xs:keyref name="FK_Template_Process" refer="TemplatePK" msprop:rel_Generator_UserChildTable="Process" msprop:rel_Generator_ChildPropName="GetProcessRows" msprop:rel_Generator_UserRelationName="FK_Template_Process" msprop:rel_Generator_ParentPropName="TemplateRowParent" msprop:rel_Generator_RelationVarName="relationFK_Template_Process" msprop:rel_Generator_UserParentTable="Template">
+      <xs:selector xpath=".//mstns:Process" />
+      <xs:field xpath="mstns:werksP" />
+      <xs:field xpath="mstns:templateName" />
+    </xs:keyref>
+    <xs:keyref name="FK_VPTypeGroupItem_VPTypeGroupItemConfig" refer="VPTypeGroupItemPK" msprop:rel_Generator_UserChildTable="VPTypeGroupItemConfig" msprop:rel_Generator_ChildPropName="GetVPTypeGroupItemConfigRows" msprop:rel_Generator_UserRelationName="FK_VPTypeGroupItem_VPTypeGroupItemConfig" msprop:rel_Generator_ParentPropName="VPTypeGroupItemRowParent" msprop:rel_Generator_RelationVarName="relationFK_VPTypeGroupItem_VPTypeGroupItemConfig" msprop:rel_Generator_UserParentTable="VPTypeGroupItem">
+      <xs:selector xpath=".//mstns:VPTypeGroupItemConfig" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+      <xs:field xpath="mstns:vpTypeId" />
+    </xs:keyref>
+    <xs:keyref name="FK_VPTypeGroupConfig_VPTypeGroupItemConfig" refer="VPTypeGroupConfigPK" msprop:rel_Generator_UserChildTable="VPTypeGroupItemConfig" msprop:rel_Generator_ChildPropName="GetVPTypeGroupItemConfigRows" msprop:rel_Generator_UserRelationName="FK_VPTypeGroupConfig_VPTypeGroupItemConfig" msprop:rel_Generator_ParentPropName="VPTypeGroupConfigRowParent" msprop:rel_Generator_RelationVarName="relationFK_VPTypeGroupConfig_VPTypeGroupItemConfig" msprop:rel_Generator_UserParentTable="VPTypeGroupConfig">
+      <xs:selector xpath=".//mstns:VPTypeGroupItemConfig" />
+      <xs:field xpath="mstns:werksS" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+    </xs:keyref>
+    <xs:keyref name="FK_VPType_VPTypeGroupItem" refer="VPTypePK" msprop:rel_Generator_UserChildTable="VPTypeGroupItem" msprop:rel_Generator_ChildPropName="GetVPTypeGroupItemRows" msprop:rel_Generator_UserRelationName="FK_VPType_VPTypeGroupItem" msprop:rel_Generator_ParentPropName="VPTypeRow" msprop:rel_Generator_RelationVarName="relationFK_VPType_VPTypeGroupItem" msprop:rel_Generator_UserParentTable="VPType">
+      <xs:selector xpath=".//mstns:VPTypeGroupItem" />
+      <xs:field xpath="mstns:vpTypeId" />
+    </xs:keyref>
+    <xs:keyref name="FK_VPTypeGroup_VPTypeGroupItem" refer="VPTypeGroupPK" msprop:rel_Generator_UserChildTable="VPTypeGroupItem" msprop:rel_Generator_ChildPropName="GetVPTypeGroupItemRows" msprop:rel_Generator_UserRelationName="FK_VPTypeGroup_VPTypeGroupItem" msprop:rel_Generator_ParentPropName="VPTypeGroupRow" msprop:rel_Generator_RelationVarName="relationFK_VPTypeGroup_VPTypeGroupItem" msprop:rel_Generator_UserParentTable="VPTypeGroup">
+      <xs:selector xpath=".//mstns:VPTypeGroupItem" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+    </xs:keyref>
+    <xs:keyref name="FK_VPTypeGroup_VPTypeGroupConfig" refer="VPTypeGroupPK" msprop:rel_Generator_UserChildTable="VPTypeGroupConfig" msprop:rel_Generator_ChildPropName="GetVPTypeGroupConfigRows" msprop:rel_Generator_UserRelationName="FK_VPTypeGroup_VPTypeGroupConfig" msprop:rel_Generator_ParentPropName="VPTypeGroupRow" msprop:rel_Generator_RelationVarName="relationFK_VPTypeGroup_VPTypeGroupConfig" msprop:rel_Generator_UserParentTable="VPTypeGroup">
+      <xs:selector xpath=".//mstns:VPTypeGroupConfig" />
+      <xs:field xpath="mstns:vpTypeGroupId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_VPTypeGroupConfig" refer="WerksPK" msprop:rel_Generator_UserChildTable="VPTypeGroupConfig" msprop:rel_Generator_ChildPropName="GetVPTypeGroupConfigRows" msprop:rel_Generator_UserRelationName="FK_Werks_VPTypeGroupConfig" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_VPTypeGroupConfig" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:VPTypeGroupConfig" />
+      <xs:field xpath="mstns:werksS" />
+    </xs:keyref>
+    <xs:keyref name="FK_Wave_Template" refer="WavePK" msprop:rel_Generator_UserChildTable="Template" msprop:rel_Generator_ChildPropName="GetTemplateRows" msprop:rel_Generator_UserRelationName="FK_Wave_Template" msprop:rel_Generator_ParentPropName="WaveRow" msprop:rel_Generator_RelationVarName="relationFK_Wave_Template" msprop:rel_Generator_UserParentTable="Wave">
+      <xs:selector xpath=".//mstns:Template" />
+      <xs:field xpath="mstns:waveId" />
+    </xs:keyref>
+    <xs:keyref name="FK_Werks_Template" refer="WerksPK" msprop:rel_Generator_UserChildTable="Template" msprop:rel_Generator_ChildPropName="GetTemplateRows" msprop:rel_Generator_UserRelationName="FK_Werks_Template" msprop:rel_Generator_ParentPropName="WerksRow" msprop:rel_Generator_RelationVarName="relationFK_Werks_Template" msprop:rel_Generator_UserParentTable="Werks">
+      <xs:selector xpath=".//mstns:Template" />
+      <xs:field xpath="mstns:werksP" />
+    </xs:keyref>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="VPType_Route" msdata:parent="VPType" msdata:child="Route" msdata:parentkey="vpTypeId" msdata:childkey="vpTypeId" msprop:Generator_UserChildTable="Route" msprop:Generator_ChildPropName="GetRouteRows" msprop:Generator_UserRelationName="VPType_Route" msprop:Generator_ParentPropName="VPTypeRow" msprop:Generator_RelationVarName="relationVPType_Route" msprop:Generator_UserParentTable="VPType" />
+      <msdata:Relationship name="FK_Process_Demand" msdata:parent="Process" msdata:child="Demand" msdata:parentkey="werksP templateName seqNo shipDate" msdata:childkey="werksPCache templateNameCache seqNoCache shipDateCache" msprop:Generator_UserChildTable="Demand" msprop:Generator_ChildPropName="GetDemandRows" msprop:Generator_UserRelationName="FK_Process_Demand" msprop:Generator_ParentPropName="ProcessRowParent" msprop:Generator_RelationVarName="relationFK_Process_Demand" msprop:Generator_UserParentTable="Process" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

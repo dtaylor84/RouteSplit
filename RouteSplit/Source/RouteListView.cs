@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 namespace RouteSplit
 {
@@ -22,7 +22,7 @@ namespace RouteSplit
 
     public class RouteListViewItem : ListViewItem
     {
-        public RouteListViewItem(string name, string description, string vptyp, string auth, RSTVPTypeGroupItemConfig config)
+        public RouteListViewItem(string name, string description, string vptyp, string auth, RSDataSet.VPTypeGroupItemConfigRow config)
         {
             this.name = name;
             this.description = description;
@@ -38,7 +38,7 @@ namespace RouteSplit
         public string description;
         public string auth;
         public string vptyp;
-        public RSTVPTypeGroupItemConfig config;
+        public RSDataSet.VPTypeGroupItemConfigRow config;
     }
 
     public class RouteListView : ListView

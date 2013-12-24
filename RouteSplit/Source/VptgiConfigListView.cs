@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 namespace RouteSplit
 {
@@ -13,23 +13,23 @@ namespace RouteSplit
     {
         public WerksS()
         {
-            this.VptgiConfigs = new Dictionary<RSTVPTypeGroupItemConfig, RouteListViewItem>();
+            this.VptgiConfigs = new Dictionary<RSDataSet.VPTypeGroupItemConfigRow, RouteListViewItem>();
         }
-        public Dictionary<RSTVPTypeGroupItemConfig, RouteListViewItem> VptgiConfigs;
+        public Dictionary<RSDataSet.VPTypeGroupItemConfigRow, RouteListViewItem> VptgiConfigs;
         public ListViewGroup group;
     }
 
     public class VptgiConfigListViewItem : ListViewItem
     {
-        public RSTVPTypeGroupItemConfig VptgiConfig { get; set; }
+        public RSDataSet.VPTypeGroupItemConfigRow VptgiConfig { get; set; }
 
-        public VptgiConfigListViewItem(RSTVPTypeGroupItemConfig vptgiConfig)
+        public VptgiConfigListViewItem(RSDataSet.VPTypeGroupItemConfigRow vptgiConfig)
         {
             this.VptgiConfig = vptgiConfig;
 
             this.Text = vptgiConfig.currentSeq.ToString();
-            this.SubItems.Add(vptgiConfig.vpType.vpTypeId);
-            this.SubItems.Add(vptgiConfig.vpType.text);
+            this.SubItems.Add(vptgiConfig.vpTypeId);
+            this.SubItems.Add(vptgiConfig.VPTypeGroupItemRowParent.VPTypeRow.text);
             this.SubItems.Add(vptgiConfig.currentSel ? "Y" : "N");
         }
     }
@@ -37,7 +37,7 @@ namespace RouteSplit
     public class VptgiConfigListView : ListView
     {
 
-        private Dictionary<RSTWerks,WerksS> WerksSes = new Dictionary<RSTWerks,WerksS>();
+        private Dictionary<string,WerksS> WerksSes = new Dictionary<string,WerksS>();
         //public string auth;
 
         public VptgiConfigListView()
@@ -109,17 +109,17 @@ namespace RouteSplit
 #if true
             WerksS w;
 
-            if (!WerksSes.ContainsKey(item.VptgiConfig.vpTypeGroupConfig.werksS))
+            if (!WerksSes.ContainsKey(item.VptgiConfig.werksS))
             {
                 w = new WerksS();
-                w.group = new ListViewGroup(item.VptgiConfig.vpTypeGroupConfig.werksS.werksId, item.VptgiConfig.vpTypeGroupConfig.werksS.werksId + ": " + item.VptgiConfig.vpTypeGroupConfig.werksS.name1);
+                w.group = new ListViewGroup(item.VptgiConfig.werksS, item.VptgiConfig.werksS + ": " + item.VptgiConfig.VPTypeGroupConfigRowParent.WerksRow.name1);
 
-                WerksSes[item.VptgiConfig.vpTypeGroupConfig.werksS] = w;
+                WerksSes[item.VptgiConfig.werksS] = w;
                 Groups.Add(w.group);
             }
             else
             {
-                w = WerksSes[item.VptgiConfig.vpTypeGroupConfig.werksS];
+                w = WerksSes[item.VptgiConfig.werksS];
             }
 
             w.group.Items.Add(item);

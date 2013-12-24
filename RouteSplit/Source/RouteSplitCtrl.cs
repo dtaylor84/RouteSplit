@@ -25,7 +25,7 @@ using SAPTableFactoryCtrl;
 using System.Data.OleDb;
 
 using c = RouteSplit.BuildConstants;
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 #endregion
 
@@ -89,7 +89,7 @@ namespace RouteSplit
     [DesignerAttribute(typeof(RouteSplitCtrlDesigner))]
     public partial class RouteSplitCtrl : UserControl, RouteSplitCtrlIntf
     {
-        private RSTState State { get; set; }
+        private RSDataSet State { get; set; }
 
         #region Initialization
 

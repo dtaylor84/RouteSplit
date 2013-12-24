@@ -18,7 +18,7 @@ using System.Collections.ObjectModel;
 #endregion
 
 
-namespace RouteSplit.Types
+namespace RouteSplit.TypesXXX
 {
     public class RSTConfig
     {

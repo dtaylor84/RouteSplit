@@ -5,22 +5,22 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 namespace RouteSplit
 {
     public class ProcessListViewItem : ListViewItem
     {
-        private RSTProcess Process;
+        private RSDataSet.ProcessRow Process;
 
-        public ProcessListViewItem(RSTProcess process)
+        public ProcessListViewItem(RSDataSet.ProcessRow process)
         {
             this.Process = process;
 
             this.Text = "";
-            this.SubItems.Add(process.template.werksP.werksId);
-            this.SubItems.Add(process.template.templateName);
-            this.SubItems.Add(process.template.text);
+            this.SubItems.Add(process.TemplateRowParent.werksP);
+            this.SubItems.Add(process.TemplateRowParent.templateName);
+            this.SubItems.Add(process.TemplateRowParent.text);
             this.SubItems.Add(process.shipDate.ToShortDateString());
             this.SubItems.Add(process.seqNo.ToString());
             this.SubItems.Add(process.extract ? "Y" : "N");

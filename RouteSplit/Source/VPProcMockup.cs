@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 namespace RouteSplit
 {
     public partial class VPProcMockup : UserControl
     {
-        public RSTState State;
+        public RSDataSet State;
 
         public VPProcMockup()
         {
@@ -25,21 +25,21 @@ namespace RouteSplit
         {
             if (State == null) return;
 
-            foreach (RSTPackPhase pp in State.PackPhaseTab)
+            foreach (var pp in State.PackPhase)
             {
                 lvPackPhase.Add(new PackPhaseListViewItem(pp));
             }
 
             this.lvPackPhase.AutoResizeColumns(System.Windows.Forms.ColumnHeaderAutoResizeStyle.ColumnContent);
 
-            foreach (RSTVPTypeGroupItemConfig vptgiConfig in State.VPTypeGroupItemConfigTab)
+            foreach (var vptgiConfig in State.VPTypeGroupItemConfig)
             {
                 // FIXME - satanically evil
-                if (!vptgiConfig.vpTypeGroupConfig.vpTypeGroup.vpTypeGroupId.Equals("A")) continue;
+                if (!vptgiConfig.vpTypeGroupId.Equals("A")) continue;
                 lvVptgiConfig.Add(new VptgiConfigListViewItem(vptgiConfig));
             }
             this.lvVptgiConfig.AutoResizeColumns(System.Windows.Forms.ColumnHeaderAutoResizeStyle.ColumnContent);
-            foreach (RSTProcess process in State.ProcessTab)
+            foreach (var process in State.Process)
             {
                 // FIXME - ugly
                 if (process.unassigned) continue;

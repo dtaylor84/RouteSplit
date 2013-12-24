@@ -5,13 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 namespace RSTestHost
 {
     public static partial class RSTestHost
     {
-        private static RSTState State = new RSTState();
+        private static RSDataSet State = new RSDataSet();
 
         /// <summary>
         /// The main entry point for the application.

@@ -25,7 +25,7 @@ using SAPTableFactoryCtrl;
 using System.Data.OleDb;
 
 using c = RouteSplit.BuildConstants;
-using RouteSplit.Types;
+using RouteSplit.Schema;
 
 #endregion
 
@@ -36,7 +36,7 @@ namespace RouteSplit
 
         #region Initialization
 
-        public RSTState State { get; set; }
+        public RSDataSet State { get; set; }
 
         public RSCtrlForm()
         {
@@ -100,13 +100,13 @@ namespace RouteSplit
                 SplitContainer splitContainer = null;
                 cc = splitContainer1.Panel1.Controls;
 
-                foreach (RSTRoute r in State.RouteTab)
+                foreach (var r in State.Route)
                 {
                     // FIXME ugly mess of data models /views / ugh
 
-                    string strWerksId = r.werksS.werksId;
-                    string strWerksName1 = r.werksS.name1;
-                    string strVpType = r.vpType.vpTypeId + " - " + r.vpType.text;
+                    string strWerksId = r.werksS;
+                    string strWerksName1 = r.WerksRow.name1;
+                    string strVpType = r.vpTypeId + " - " + r.VPTypeRow.text;
                     string strShortRoute = r.routeId.Substring(3, 3); // XXX
                     string strRouteText = r.text; //.Substring(7);
 
@@ -153,23 +153,13 @@ namespace RouteSplit
                         p = plants[strWerksId];
                     }
 
+
                     // FIXME - oh god, fixme.
                     RouteListViewItem i = new RouteListViewItem(strShortRoute, strRouteText, strVpType, strWerksId,
-                        State.VPTypeGroupItemConfigTab
-                            [
-                                new RSTVPTypeGroupItemConfigKey(
-                                    State.VPTypeGroupConfigTab[
-                                        new RSTVPTypeGroupConfigKey(
-                                            State.WerksTab[new RSTWerksKey(r.werksS.werksId)],
-                                            State.VPTypeGroupTab[new RSTVPTypeGroupKey("A")]
-                                        )
-                                    ],
-                                    State.VPTypeTab[new RSTVPTypeKey(r.vpType.vpTypeId)]
-                                )
-                            ]
+                        State.VPTypeGroupItemConfig.FindBywerksSvpTypeGroupIdvpTypeId(r.werksS, "A", r.vpTypeId)
                     );
                     //i.BackColor = Color.FromArgb(255, ((16 * p.listView.Items.Count) % 255), ((16 * p.listView.Items.Count) % 255));
-                    if (r.vpType.dummyType) i.BackColor = Color.FromArgb(255, 255, 0, 0);
+                    if (r.VPTypeRow.dummyType) i.BackColor = Color.FromArgb(255, 255, 0, 0);
                     p.listView.Add(i);
 
 
@@ -205,7 +195,7 @@ namespace RouteSplit
             cc2 = splitContainer1.Panel2.Controls;
 
             int processIdx = 0;
-            foreach (RSTProcess process in State.ProcessTab)
+            foreach (var process in State.Process)
             {
                 // XXX - these should be enumerated in a specific order
 
@@ -221,7 +211,7 @@ namespace RouteSplit
 
 
                 pk.listView = new RouteListView();
-                pk.name = process.template.werksP.werksId + " " + process.template.werksP.name1 + ": " + process.template.templateName + " " + process.shipDate.ToShortDateString() + " #" + process.seqNo.ToString();
+                pk.name = process.werksP + " " + process.TemplateRowParent.WerksRow.name1 + ": " + process.templateName + " " + process.shipDate.ToShortDateString() + " #" + process.seqNo.ToString();
                 pk.listView.Sorting = SortOrder.Ascending;
                 pk.listView.Dock = DockStyle.Fill;
                 pk.listView.View = View.Details;
